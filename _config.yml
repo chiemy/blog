@@ -41,12 +41,12 @@ links:
     url: /
     external: false
     icon: home
-  - title: Featured Posts
-    url: /featured
   - title: 分类
     url: /categories
   - title: Tags
     url: /tags
+  #- title: Featured Posts
+  #  url: /featured  
 
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
