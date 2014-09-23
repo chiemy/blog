@@ -1,10 +1,9 @@
 ---
 layout: post
-type: web
 title: "[JavaScript]代码运行"
 modified: 2014-9-18 22:46:27
 excerpt: "引入JavaScript代码的方式"
-tags: [web, js, javascript]
+tags: [web,javascript,翻译]
 comments: true
 ---
 有三种写`JavaScript`代码的方式。

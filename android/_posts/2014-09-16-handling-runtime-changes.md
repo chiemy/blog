@@ -1,10 +1,9 @@
 ---
 layout: post
-type: android
 title: "[API Guide]App Resources-处理运行时的变化"
 modified: 2014-9-16 21:00:36
 excerpt: "在运行时，对配置改变的处理"
-tags: [android, api, resources, runtime change]
+tags: [android, Android Api, App Resources,翻译]
 comments: true
 ---
 <section id="table-of-contents" class="toc">

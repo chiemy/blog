@@ -4,7 +4,7 @@ type: android
 title: "[译]RecyclerView基础"
 modified: 2014-9-18 22:46:27
 excerpt: "RecyclerView的使用方法"
-tags: [android, RecyclerView ]
+tags: [android, RecyclerView ,翻译]
 comments: true
 ---
 [原博客地址：RecyclerView in Android: The basics](http://antonioleiva.com/recyclerview/)

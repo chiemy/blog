@@ -4,7 +4,7 @@ type: android
 title: "让APK文件更小"
 modified: 2014-9-11 15:38:18
 excerpt: "缩减Apk文件大小的一些建议"
-tags: [android, apk, tips]
+tags: [android, tips, 翻译]
 comments: true
 ---
 Android最初版本的APK文件只有2MB左右的大小，而现在的应用变得越来越大，动辄就是10几20MB。用户体验和开发者经验的积累是造成APK文件越来越大的直接原因，还有以下一些原因：

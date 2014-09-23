@@ -1,10 +1,9 @@
 ---
 layout: post
-type: android
 title: "[API Guide]App Resources-资源的访问"
 modified: 2014-9-16 21:40:21
 excerpt: "访问资源的方法"
-tags: [android, api, resources, access]
+tags: [android, Android Api,翻译, App Resources]
 comments: true
 ---
 

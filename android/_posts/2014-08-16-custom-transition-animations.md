@@ -1,10 +1,9 @@
 ---
 layout: post
-type: android
 title: "[开发范例] 自定义过度动画"
 modified: 2014-8-16 21:13:42
 excerpt: "自定义Activity切换或者Fragment切换时的过度动画"
-tags: [android, 开发范例]
+tags: [android, android开发范例]
 ---
 <section id="table-of-contents" class="toc">
   <header>

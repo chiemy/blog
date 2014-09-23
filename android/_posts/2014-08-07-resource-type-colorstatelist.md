@@ -1,10 +1,10 @@
 ---
 layout: post
-type: android
 title: "[Resource Type] ColorStateList"
 modified: 2014-08-08
 excerpt: "ColorlStateList的使用"
-tags: [android, api, resource, 翻译]
+tags: [android, Android Api,App Resources, 翻译]
+comments: true
 ---
 
 ColorStateList是可以作为颜色定义在xml中的一个对象，它会根据与之关联的View对象的状态，改变颜色。在xml文件中，定义在一个<selector>标签下的，每个<item>标签代表一种颜色，通过多个属性值对它的状态，以及触发的条件进行描述。
