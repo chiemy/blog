@@ -151,6 +151,9 @@ main, .notepad-share-icons, .notepad-disqus {
   .notepad-site-head .notepad-site-head-menu .notepad-blog-logo {
     display: inline-block;
     max-height: 5rem; }
+    .notepad-site-head .notepad-site-head-menu .notepad-blog-logo {
+    display: inline-block;
+    max-height: 5rem; }
     .notepad-site-head .notepad-site-head-menu .notepad-blog-logo img {
       max-height: 5rem; }
   .notepad-site-head .notepad-site-head-menu .title {
@@ -160,7 +163,7 @@ main, .notepad-share-icons, .notepad-disqus {
     height: 5rem;
     line-height: 5rem;
     vertical-align: middle;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Chiemy";
     font-size: 1.625rem;
     font-weight: 700;
     color: black;
