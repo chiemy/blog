@@ -1,0 +1,346 @@
+.highlight {
+  width: 97%;
+  margin: 10px auto;
+  font-size: 16px;
+  line-height: 1.2em;
+  background-color: #363636;
+  color: #eeeeee;
+  padding: 10px;
+  box-shadow: 3px 3px 12px 3px #383830;
+  border-radius: 10px; }
+/*
+# Adopted from Octopres (http://octopress.org) and the work of Brandon Mathis
+# https://github.com/imathis/octopress
+*/
+.file-code-line .blob-line-code {
+    background: #333;
+}
+ 
+.file-code-line .blob-line-nums {
+    background: #292929;
+    border-right: 3px solid #707070;
+    color: #c0c0c0;
+}
+ 
+.file-data .line-numbers {
+    font-size: 14px;
+}
+ 
+.highlight {
+    background: rgb(38,41,40);
+    color: #f8f8f2 ;
+}
+ 
+.highlight .bp {
+    color: #f8f8f2 ;
+}
+ 
+.highlight .c {
+    color: #75715e ;
+}
+ 
+.highlight .c1 {
+    color: #75715e ;
+}
+ 
+.highlight .c1,pre .cm {
+    color: rgb(117,113,94);
+    font-style: normal;
+}
+ 
+.highlight .cm {
+    color: #75715e ;
+}
+ 
+.highlight .cp {
+    color: #75715e ;
+}
+ 
+.highlight .cs {
+    color: #75715e ;
+}
+ 
+.highlight .err {
+    background-color: #1e0010 ;
+    color: #960050;
+}
+ 
+.highlight .ge {
+    font-style: italic ;
+}
+ 
+.highlight .gs {
+    font-weight: bold ;
+}
+ 
+.highlight .hll {
+    background-color: #49483e ;
+}
+ 
+.highlight .il {
+    color: #ae81ff ;
+}
+ 
+.highlight .k {
+    color: #66d9ef ;
+}
+ 
+.highlight .k ,.highlight .nt,.highlight .kd {
+    color: rgb(249,38,114);
+    font-weight: normal;
+}
+ 
+.highlight .kc ,html .gist .gist-file .gist-syntax .highlight .kc{
+    color: #66d9ef ;
+}
+ 
+.highlight .kd ,html .gist .gist-file .gist-syntax .highlight .kd{
+    color: #66d9ef ;
+}
+ 
+.highlight .kn ,html .gist .gist-file .gist-syntax .highlight .kn{
+    color: #f92672 ;
+}
+ 
+.highlight .kp ,html .gist .gist-file .gist-syntax .highlight .kp{
+    color: #66d9ef ;
+}
+ 
+.highlight .kr ,html .gist .gist-file .gist-syntax .highlight .kr{
+    color: #66d9ef ;
+}
+ 
+.highlight .kt ,html .gist .gist-file .gist-syntax .highlight .kt{
+    color: #66d9ef ;
+}
+ 
+.highlight .l ,html .gist .gist-file .gist-syntax .highlight .l{
+    color: #ae81ff ;
+}
+ 
+.highlight .ld ,html .gist .gist-file .gist-syntax .highlight .ld{
+    color: #e6db74 ;
+}
+ 
+.highlight .m ,html .gist .gist-file .gist-syntax .highlight .m{
+    color: #ae81ff ;
+}
+ 
+.highlight .mf ,html .gist .gist-file .gist-syntax .highlight .mf{
+    color: #ae81ff ;
+}
+ 
+.highlight .mh ,html .gist .gist-file .gist-syntax .highlight .mh{
+    color: #ae81ff ;
+}
+ 
+.highlight .mi ,html .gist .gist-file .gist-syntax .highlight .mi{
+    color: #ae81ff ;
+}
+ 
+.highlight .mo ,html .gist .gist-file .gist-syntax .highlight .mo{
+    color: #ae81ff ;
+}
+ 
+.highlight .n ,html .gist .gist-file .gist-syntax .highlight .n{
+    color: #f8f8f2 ;
+}
+ 
+.highlight .na ,html .gist .gist-file .gist-syntax .highlight .na{
+    color: #a6e22e ;
+}
+ 
+.highlight .nb ,html .gist .gist-file .gist-syntax .highlight .nb{
+    color: #f8f8f2 ;
+}
+ 
+.highlight .nc ,html .gist .gist-file .gist-syntax .highlight .nc{
+    color: #a6e22e ;
+}
+ 
+.highlight .nd ,html .gist .gist-file .gist-syntax .highlight .nd{
+    color: #a6e22e ;
+}
+ 
+.highlight .ne ,html .gist .gist-file .gist-syntax .highlight .ne{
+    color: #a6e22e ;
+}
+ 
+.highlight .nf ,html .gist .gist-file .gist-syntax .highlight .nf{
+    color: #a6e22e ;
+}
+ 
+.highlight .ni ,html .gist .gist-file .gist-syntax .highlight .ni{
+    color: #f8f8f2 ;
+}
+ 
+.highlight .nl ,html .gist .gist-file .gist-syntax .highlight .nl{
+    color: #f8f8f2 ;
+}
+ 
+.highlight .nn ,html .gist .gist-file .gist-syntax .highlight .nn{
+    color: #f8f8f2 ;
+}
+ 
+.highlight .no ,html .gist .gist-file .gist-syntax .highlight .no{
+    color: #66d9ef ;
+}
+ 
+.highlight .nt ,html .gist .gist-file .gist-syntax .highlight .nt{
+    color: #f92672 ;
+}
+ 
+.highlight .nv ,html .gist .gist-file .gist-syntax .highlight .nv{
+    color: #f8f8f2 ;
+}
+ 
+.highlight .nv,.highlight .na ,html .gist .gist-file .gist-syntax .highlight .na ,,html .gist .gist-file .gist-syntax .highlight .nv{
+    color: rgb(166,226,46);
+}
+ 
+.highlight .nx ,html .gist .gist-file .gist-syntax .highlight .nx{
+    color: #a6e22e ;
+}
+ 
+.highlight .o ,html .gist .gist-file .gist-syntax .highlight .o{
+    color: #f92672 ;
+}
+ 
+.highlight .ow ,html .gist .gist-file .gist-syntax .highlight .ow{
+    color: #f92672 ;
+}
+ 
+.highlight .p ,html .gist .gist-file .gist-syntax .highlight .p{
+    color: #f8f8f2 ;
+}
+ 
+.highlight .py ,html .gist .gist-file .gist-syntax .highlight .py{
+    color: #f8f8f2 ;
+}
+ 
+.highlight .s ,html .gist .gist-file .gist-syntax .highlight .s{
+    color: #e6db74 ;
+}
+ 
+.highlight .s,.highlight .s2, .highlight .s1 ,html .gist .gist-file .gist-syntax .highlight .s,,html .gist .gist-file .gist-syntax .highlight .s2,,html .gist .gist-file .gist-syntax .highlight .s1{
+    color: rgb(229,218,91)
+;
+}
+ 
+.highlight .s1 {
+    color: #e6db74 ;
+}
+ 
+.highlight .s2 {
+    color: #e6db74 ;
+}
+ 
+.highlight .sb ,html .gist .gist-file .gist-syntax .highlight .sb{
+    color: #e6db74 ;
+}
+ 
+.highlight .sc ,html .gist .gist-file .gist-syntax .highlight .sc{
+    color: #e6db74 ;
+}
+ 
+.highlight .sd ,html .gist .gist-file .gist-syntax .highlight .sd{
+    color: #e6db74 ;
+}
+ 
+.highlight .se ,html .gist .gist-file .gist-syntax .highlight .se{
+    color: #ae81ff ;
+}
+ 
+.highlight .sh ,html .gist .gist-file .gist-syntax .highlight .sh{
+    color: #e6db74 ;
+}
+ 
+.highlight .si ,html .gist .gist-file .gist-syntax .highlight .si{
+    color: #e6db74 ;
+}
+ 
+.highlight .sr ,html .gist .gist-file .gist-syntax .highlight .sr{
+    color: #e6db74 ;
+}
+ 
+.highlight .ss ,html .gist .gist-file .gist-syntax .highlight .ss{
+    color: #e6db74 ;
+}
+ 
+.highlight .sx ,html .gist .gist-file .gist-syntax .highlight .sx{
+    color: #e6db74 ;
+}
+ 
+.highlight .vc ,html .gist .gist-file .gist-syntax .highlight .vc{
+    color: #f8f8f2 ;
+}
+ 
+.highlight .vg ,html .gist .gist-file .gist-syntax .highlight .vg{
+    color: #f8f8f2 ;
+}
+ 
+.highlight .vi ,html .gist .gist-file .gist-syntax .highlight .vi{
+    color: #f8f8f2 ;
+}
+ 
+.highlight .w ,html .gist .gist-file .gist-syntax .highlight .w{
+    color: #f8f8f2 ;
+}
+ 
+.highlight pre ,html .gist .gist-file .gist-syntax .highlight pre{
+    background: transparent;
+    color: #f8f8f2 ;
+}
+ 
+.highlight pre span ,html .gist .gist-file .gist-syntax .highlight pre span{
+    font-weight: normal;
+}
+ 
+.markdown-body pre {
+    border: 0;
+    border-radius: 0;
+    padding-left: 10px;
+}
+ 
+div.code-body.highlight,pre,.data.highlight {
+    background: rgb(38,41,40);
+    color: #ddd;
+    font-family: 'Monaco',"Consolas";
+    font-size: 16px;
+}
+ 
+.file-code {
+    background: rgb(38,41,40);
+}
+ 
+.highlight .gd .diff-line-code,.highlight .gd .diff-line-num {
+    background: #a00;
+}
+ 
+.highlight .gi .diff-line-code,.highlight .gi .diff-line-num {
+    background: #006A74;
+}
+ 
+.highlight .gc .diff-line-code,.highlight .gc .diff-line-num {
+    background: #948200;
+}
+ 
+.highlight .gi .x {
+    background: #006A74;
+    color: #fff;
+}
+ 
+.file-diff-line:hover .diff-line-code,.file-diff-line:hover .diff-line-num {
+    background: #000;
+}
+ 
+pre {
+    font-family: "Ayuthaya","Lucida Sans Typewriter","Menlo","Monospaced","Courier","Andale Mono";
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.5em;
+}
+ 
+pre code {
+    font-size: 14px;
+}

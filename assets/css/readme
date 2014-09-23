@@ -1,0 +1,4 @@
+修改了：post.css
+html, body, .notepad-post-container, .notepad-post-header {
+  font-size: 1rem;新增
+  height: 100%; }
