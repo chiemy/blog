@@ -1,10 +1,9 @@
 ---
 layout: post
-type: android
 title: "[API Guide]User Interface-样式和主题"
 modified: 2014-9-16 21:20:58
 excerpt: "样式和主题的使用"
-tags: [android, api, style, theme]
+tags: [android, Android Api, 翻译, User Interface]
 comments: true
 ---
 <section id="table-of-contents" class="toc">

@@ -1,10 +1,9 @@
 ---
 layout: post
-type: android
 title: "View绘制流程"
 modified: 2014-9-9 14:39:24
 excerpt: "绘制流程及各主要函数的简单介绍"
-tags: [android, view, measure, layout, draw]
+tags: [android, View]
 comments: true
 ---
 

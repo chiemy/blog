@@ -1,10 +1,9 @@
 ---
 layout: post
-type: android
 title: "用PageTranformer实现更炫酷的动画"
 modified: 2014-9-11 15:38:18
 excerpt: "ViewPager.PageTranformer的基本用法及扩展"
-tags: [android, viewpager, animation]
+tags: [android, ViewPager, Animation]
 comments: true
 ---
 

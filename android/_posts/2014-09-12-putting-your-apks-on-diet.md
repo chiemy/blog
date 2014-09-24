@@ -1,12 +1,14 @@
 ---
 layout: post
-type: android
 title: "让APK文件更小"
 modified: 2014-9-11 15:38:18
 excerpt: "缩减Apk文件大小的一些建议"
-tags: [android, apk, tips]
+tags: [android, tips, 翻译]
 comments: true
 ---
+
+原文地址：[Putting Your APKs on Diet](http://cyrilmottier.com/2014/08/26/putting-your-apks-on-diet/)
+
 Android最初版本的APK文件只有2MB左右的大小，而现在的应用变得越来越大，动辄就是10几20MB。用户体验和开发者经验的积累是造成APK文件越来越大的直接原因，还有以下一些原因：
 
 - dpi种类的增加（[l|m|tv|h|x|xx|xxx]dpi)）
@@ -132,6 +134,3 @@ Android通常是Java代码，但有些情况下需要依赖native-code，你可�
 
 ###总结
 设计是关于如何从一系列的限制中解放出来，APK文件的大小就是这限制中的一个。让应用的其他方面突出，就别怕在应用的某个方面做出妥协。例如，如果降低UI渲染的质量能够减少APK文件的大小并且使得应用更小巧，那么别犹豫。99%的用户不会注意到UI质量的下降，他们更关心应用是否轻量级与流畅。终究，评判一个应用是从整体，而不是局部。
-
-
-原文地址：[Putting Your APKs on Diet](http://cyrilmottier.com/2014/08/26/putting-your-apks-on-diet/)

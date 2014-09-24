@@ -4,7 +4,7 @@ type: android
 title: "[开发范例] 创建视图变换"
 modified: 2014-8-17 22:48:07
 excerpt: "视图转换"
-tags: [android, 视图变换, staticTranformation]
+tags: [android, android开发范例]
 ---
 
 ViewGroup中的静态变换API提供了应用视觉效果的简单方法，例如旋转、缩放、透明度变化，而且不必依靠动画。使用它也很容易使用父视图的context来应用变换，比如根据位置的变化而缩放。

@@ -1,10 +1,9 @@
 ---
 layout: post
-type: web
 title: "[JavaScript]初识"
 modified: 2014-9-17 13:29:21
 excerpt: "JavaScript简介"
-tags: [web, js, javascript, 初识]
+tags: [web, JavaScript, 翻译]
 comments: true
 ---
 原文地址：[JavaScript 101-Getting Started](http://learn.jquery.com/javascript-101/getting-started/)

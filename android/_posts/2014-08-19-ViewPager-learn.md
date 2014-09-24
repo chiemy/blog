@@ -1,6 +1,5 @@
 ---
 layout: post
-type: android
 title: "ViewPager使用中的一些问题"
 modified: 2014-8-19 21:13:42
 excerpt: ""

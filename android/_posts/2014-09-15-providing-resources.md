@@ -1,10 +1,9 @@
 ---
 layout: post
-type: android
 title: "[API Guide]App Resources-可使用的资源"
 modified: 2014-9-16 00:05:38
 excerpt: "介绍可使用的资源文件类型，在哪里保存它们，以及怎样根据不同的设备配置创建可选择的资源"
-tags: [android, api, resources]
+tags: [android, Android Api, 翻译, App Resources]
 comments: true
 ---
 

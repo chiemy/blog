@@ -1,10 +1,9 @@
 ---
 layout: post
-type: android
 title: "View的getHitRect()方法的bug"
 modified: 2014-8-20 10:41:22
 excerpt: "Strange View.getHitRect() behaviour"
-tags: [android, problem]
+tags: [android, Android Problem]
 comments: true
 ---
 

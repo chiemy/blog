@@ -1,10 +1,9 @@
 ---
 layout: post
-type: android
 title: "[API Guide]App Resources-资源类型"
 modified: 2014-9-16 21:55:28
 excerpt: "常见不常用的资源类型用法总结"
-tags: [android, api, resources, type]
+tags: [android, App Resources,Android Api, 翻译]
 comments: true
 ---
 <section id="table-of-contents" class="toc">
