@@ -314,8 +314,8 @@ html, body, .notepad-post-container, .notepad-post-header {
     color: #e51843; }
   @media only screen and (min-width: 40.063em) {
     .notepad-post-share {
-      padding-top: 3rem;
-      padding-bottom: 3rem; } }
+      padding-top: 2rem;
+      padding-bottom: 2rem; } }
 
 .notepad-author-info {
   padding: 0;
@@ -557,8 +557,8 @@ iframe {
     text-transform: uppercase; }
   @media only screen and (min-width: 40.063em) {
     .notepad-disqus {
-      padding-top: 2rem;
-      padding-bottom: 2rem; } }
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem; } }
 .post-list {
     padding: 0;
     margin: 0;
