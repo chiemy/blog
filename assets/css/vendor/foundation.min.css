@@ -177,8 +177,8 @@ select {
 }
 
 .column,.columns {
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
+	padding-left: 0.9375rem;
+	padding-right: 0.9375rem;
 	width: 100%;
 	float: left
 }[class*="column"]+[class*="column"]:last-child {
