@@ -459,8 +459,8 @@ html, body, .notepad-post-container, .notepad-post-header {
   padding: 0 0 5rem; }
   .notepad-page-content > div:not(.notepad-page-title) {
     margin: 0 auto;
-    padding-left: 1.875rem;
-    padding-right: 1.875rem; }
+    padding-left: 1rem;
+    padding-right: 1rem; }
     .notepad-page-content > div:not(.notepad-page-title) a, .notepad-page-content > div:not(.notepad-page-title) code {
       color: #e51843; }
     .notepad-page-content > div:not(.notepad-page-title) ul, .notepad-page-content > div:not(.notepad-page-title) ol {
