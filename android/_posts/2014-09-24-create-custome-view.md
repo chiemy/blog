@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "创建自定义和混合视图教程"
-modified: 2014-9-18 18:21:30
+modified: 2014-9-24 18:31:19
 excerpt: "如何创建自定义和混合视图"
 tags: [android, custom view]
 comments: true
