@@ -22,8 +22,8 @@ comments: true
 至于这个`position`参数是什么意思呢？通过一张图来说明:
 
 <figure>
-	<a href="http://chiemyblog.qiniudn.com/page_transformer1.png"><img src="http://chiemyblog.qiniudn.com/page_transformer1.png"></a>
-	<figcaption><a href="http://chiemyblog.qiniudn.com/page_transformer1.png" title="view绘制流程">position参数</a></figcaption>
+	<img src="http://chiemyblog.qiniudn.com/page_transformer1.png">
+	<figcaption>position参数</figcaption>
 </figure>
 
 屏幕(确切的说，应该是ViewPager)左边缘为0，右边缘为1，page左边缘的所处的位置，就是此page的`position`的取值了。
@@ -35,7 +35,11 @@ comments: true
 `transformPage()`方法提供了`position`的值和page所对应的`view`，一般情况下，我们会对此`view`进行动画处理，但是不限于此。
 我们可以对此`view`的内部的`view`进行动画处理，就像下边这样:
 
-![](https://d262ilb51hltx0.cloudfront.net/max/600/1*zD4p2a5gBqt63PQH9ZLNdQ.gif)
+<figure>
+	<img src="https://d262ilb51hltx0.cloudfront.net/max/600/1*zD4p2a5gBqt63PQH9ZLNdQ.gif">
+	<figcaption>动态效果图</figcaption>
+</figure>
+
 
 代码示例：
 
