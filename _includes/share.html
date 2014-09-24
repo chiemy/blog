@@ -1,16 +1,21 @@
         <div class="row text-center">
             <section class="notepad-post-share">
+                <a class="weibo-icon" href="http://service.weibo.com/share/share.php?url={{ site.url }}{{ page.url }}"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                    <i class="fa fa-weibo"></i>
+                </a>
                 <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;{{ page.title }}&quot;%20{{ site.url }}{{ page.url }}%20via%20&#64;{{ site.owner.twitter }}"
-                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="分享到Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
                 <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}"
-                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="分享到Facebook">
                     <i class="fa fa-facebook"></i>
                 </a>
                 <a class="google-icon" href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}"
-                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="分享到Google+">
                     <i class="fa fa-google-plus"></i>
                 </a>
+
             </section>
         </div>
