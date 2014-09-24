@@ -24,7 +24,7 @@ comments: true
 Android框架提供了几种默认的视图，但开发者也可以为自己的应用自定义视图。最基础的视图时View,如下图所示
 
 <figure>
-   <a href="http://chiemyblog.qiniudn.com/xandroid_viewhierarchy10.png.pagespeed.ic.nQTkkQQ3Y8.png"><img src="http://chiemyblog.qiniudn.com/xandroid_viewhierarchy10.png.pagespeed.ic.nQTkkQQ3Y8.png"></a>
+   <img src="http://chiemyblog.qiniudn.com/xandroid_viewhierarchy10.png.pagespeed.ic.nQTkkQQ3Y8.png">
    <figcaption></figcaption>
 </figure>
 
@@ -114,7 +114,7 @@ view.destroyDrawingCache();
 包括`Animate`,`Measure`,`Layout`以及`Draw`
 
 <figure>
-   <a href="http://chiemyblog.qiniudn.com/xview_traversallifecycle10.png.pagespeed.ic.xtwuGrv__z.png"><img src="http://chiemyblog.qiniudn.com/xview_traversallifecycle10.png.pagespeed.ic.xtwuGrv__z.png" align="middle"></a>
+   <img src="http://chiemyblog.qiniudn.com/xview_traversallifecycle10.png.pagespeed.ic.xtwuGrv__z.png" align="middle">
    <figcaption></figcaption>
 </figure>
 
