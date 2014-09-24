@@ -217,7 +217,7 @@ script>
 
 <figure>
 	<img src="http://www.vogella.com/tutorials/AndroidCustomViews/images/xcompoundview10.png.pagespeed.ic.MdHKtrr6Oa.jpg">
-	<figcaption><a href="http://chiemyblog.qiniudn.com/page_transformer1.png" title="view绘制流程">position参数</a></figcaption>
+	<figcaption><a href="http://www.vogella.com/tutorials/AndroidCustomViews/images/xcompoundview10.png.pagespeed.ic.MdHKtrr6Oa.jpg" title="效果"></a></figcaption>
 </figure>
 
 
