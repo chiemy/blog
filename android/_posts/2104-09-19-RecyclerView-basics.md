@@ -55,7 +55,7 @@ comments: true
 ##设置RecyclerView 
 最后，如果你想初始化一个可用的`RecyclerView`，那么有以下的事情要做：
 
-{% hightlight java %}
+{% highlight java %}
 RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
 recyclerView.setHasFixedSize(true);
 recyclerView.setAdapter(new MyRecyclerAdapter(createMockList(), R.layout.item));
