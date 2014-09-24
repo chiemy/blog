@@ -186,11 +186,14 @@ html, body, .notepad-post-container, .notepad-post-header {
     padding: 0; }
     .post-template .notepad-post-content > div:not(.notepad-post-title) {
       margin: -25% auto 0;
-      padding-left: 1.875rem;
-      padding-right: 1.875rem; }
+      padding-left: 1rem;
+      padding-right: 1rem; }
       @media only screen and (min-width: 40.063em) {
         .post-template .notepad-post-content > div:not(.notepad-post-title) {
-          margin: -18% auto 0; } }
+          margin: -18% auto 0; 
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+          } }
       @media only screen and (min-width: 70em) {
         .post-template .notepad-post-content > div:not(.notepad-post-title) {
           margin: -10% auto 0; } }
@@ -305,7 +308,7 @@ html, body, .notepad-post-container, .notepad-post-header {
   font-size: 1.875rem;
   padding: 0;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   border-top: 0.0625rem solid #f2f2f2;
   color: #e51843; }
   .notepad-post-share a {
@@ -314,8 +317,8 @@ html, body, .notepad-post-container, .notepad-post-header {
     color: #e51843; }
   @media only screen and (min-width: 40.063em) {
     .notepad-post-share {
-      padding-top: 3rem;
-      padding-bottom: 3rem; } }
+      padding-top: 2rem;
+      padding-bottom: 1rem; } }
 
 .notepad-author-info {
   padding: 0;
@@ -324,16 +327,16 @@ html, body, .notepad-post-container, .notepad-post-header {
   background: #f2f2f2; }
   @media only screen and (min-width: 40.063em) {
     .notepad-author-info {
-      padding-top: 2.5rem;
-      padding-bottom: 2.5rem; } }
+      padding-top: 2rem;
+      padding-bottom: 2rem; } }
   @media only screen and (min-width: 70em) {
     .notepad-author-info {
-      padding-top: 3.4rem;
-      padding-bottom: 3.4rem; } }
+      padding-top: 3rem;
+      padding-bottom: 3rem; } }
   @media only screen and (min-width: 90em) {
     .notepad-author-info {
-      padding-top: 3.7rem;
-      padding-bottom: 3.7rem; } }
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem; } }
   .notepad-author-info .notepad-post-author {
     padding-left: 1.875rem;
     padding-right: 1.875rem;
@@ -348,12 +351,14 @@ html, body, .notepad-post-container, .notepad-post-header {
     .notepad-author-info .notepad-post-author h1 {
       margin: 0;
       padding: 0;
-      font-family: "Montserrat", sans-serif;
+      font-family: "Chiemy";
       font-weight: 700;
       text-transform: uppercase; }
-    .notepad-author-info .notepad-post-author > p {
+    .notepad-author-info .notepad-post-author > p {  
+      font-family: "Chiemy";
       font-size: 1.125rem; }
       .notepad-author-info .notepad-post-author > p a {
+        font-family: " Montserrat";       
         color: #e51843; }
     .notepad-author-info .notepad-post-author .notepad-post-author-avatar {
       width: 12.5rem;
@@ -459,8 +464,8 @@ html, body, .notepad-post-container, .notepad-post-header {
   padding: 0 0 5rem; }
   .notepad-page-content > div:not(.notepad-page-title) {
     margin: 0 auto;
-    padding-left: 1.875rem;
-    padding-right: 1.875rem; }
+    padding-left: 1rem;
+    padding-right: 1rem; }
     .notepad-page-content > div:not(.notepad-page-title) a, .notepad-page-content > div:not(.notepad-page-title) code {
       color: #e51843; }
     .notepad-page-content > div:not(.notepad-page-title) ul, .notepad-page-content > div:not(.notepad-page-title) ol {
@@ -548,17 +553,17 @@ iframe {
 
 .notepad-disqus {
   padding: 0;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 1.875rem;
-  padding-right: 1.875rem; }
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem; }
   .notepad-disqus .notepad-comments-header {
     font-weight: 700;
     text-transform: uppercase; }
   @media only screen and (min-width: 40.063em) {
     .notepad-disqus {
-      padding-top: 2rem;
-      padding-bottom: 2rem; } }
+      padding-top: 1rem;
+      padding-bottom: 1rem; } }
 .post-list {
     padding: 0;
     margin: 0;
