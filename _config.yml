@@ -13,8 +13,6 @@ comments :
 # whether working locally or remotely. Start Jekyll with: jekyll serve --baseurl ''
 url:      http://chiemy.com
 
-
-
 # Owner/author information
 owner:
   name:           chiemy
