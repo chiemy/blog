@@ -40,7 +40,7 @@ Android框架提供了几种默认的视图，但开发者也可以为自己的�
 
 >注意<br/>
 >1.measure和layout过程总是同时发生<br/>
->2.布局管理器（Layout Managers）会多次调用measure过程。For example LinearLayout supports the weight attribute which distributes the remaining empty space among views and RelativeLayout measures child views several times to solve constraints given in the layout file.
+>2.布局管理器（Layout Managers）会多次调用measure过程。例如，LinearLayout支持`weight`属性，可以将剩余的空间按比例分配，RelativeLayout为解决布局文件中的限制会多次测量子视图。
 
 视图或Activity可以通过调用`requestLayout()`方法触发`measure`和`layout`过程。
 
