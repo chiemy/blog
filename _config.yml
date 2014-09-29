@@ -47,9 +47,10 @@ links:
   - title: Tags
     url: /tags
   - title:留言板
-    url: /messages  
-  #- title: Featured Posts
-  #  url: /featured  
+    url:/messages
+
+#- title: Featured Posts
+#  url: /featured
 
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
