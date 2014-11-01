@@ -6,7 +6,7 @@ modified: 2014-9-29 15:29:51
 excerpt: ""
 tags: [android, bluetooth ,Android Api,翻译]
 comments: true
-published : false
+published : true
 ---
 
 Android平台提供了蓝牙网络模块的支持，允许设备间进行无线数据交换。通过Android蓝牙APIs,应用框架可以访问蓝牙。这些APIs允许应用程序和其他设备进行无线连接，包括点对点和多点通讯功能。

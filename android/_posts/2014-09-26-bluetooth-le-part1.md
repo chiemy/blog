@@ -6,7 +6,7 @@ modified: 2014-9-26 10:16:11
 excerpt: "RecyclerView的使用方法"
 tags: [android, bluetooth ,翻译]
 comments: true
-published : false
+published : true
 ---
 原文地址：[Bluetooth LE – Part 1](http://blog.stylingandroid.com/bluetooth-le-part-1/)
 
@@ -20,7 +20,11 @@ published : false
 
 首先就是配对过程。传统的蓝牙中，配对任务更多的由用户负责，但在BLE中则主要有开发者负责。在用户角度来说这是件好事，因为它使得配对过程更简单明了。
 
-另一个主要的区别是通讯方面，在传统的蓝牙开发中有几个点， 和标准的网络sockets类似，都是基于socket结构。本质上我们的数据是通过sockets进行传输的，传输中两个设备都明确数据流的格式。BLE则采用不同的方法，并基于一些重要的特性，
+另一个主要的区别是通讯方面，在传统的蓝牙开发中有几个选项。都是基于和标准的网络sockets类似的socket结构。本质上我们的数据是通过sockets进行传输的，传输中两个设备都明确数据流的格式。BLE则采用不同的方法，并基于一些属性。一个属性是两个设备间分享的数据实质上是原子性(atomic)的(i.e. 一个integer或string)。属性既可以用来代表数据，也可以对感应器进行控制。例如，在一个心率监测器中，一个属性可能携带着当前的心率值(数据)，另一个可能包含着心率值更新的频率的设置(行为)。
 
-##未完成
+在我们继续深入探讨之前，需要制定一些规矩。通常我们会将传感器(诸如，心率监测器、温度传感器)连接到主机上(诸如手机，电脑)。在我们的例子中，我们的主机可以在从一个属性读取数据的同时，通过给另一属性重新赋值的方式来控制传感器。There is actually a little more to it than that because a host can also register to be notified when an attribute changes, but we’ll cover that in due course.
+
+在这一系列的文章中，我将使用的设备是[Texas Instruments SensorTag](http://www.ti.com/tool/cc2541dk-sensor#3),它是个BLE、多传感器的开发套装，价格25美元，包含温度、红外、湿度、气压计、磁力仪、加速度计、陀螺仪。在这系列文章里，我们将创建一个应用，可以展示从SensorTag中获取的环境温度和湿度。
+
+抱歉文章中没有代码，但我觉得在深入细节问题(nitty gritty)之前，建立一个背景是很重要的。我保证下篇文章你就会见到代码了
 
