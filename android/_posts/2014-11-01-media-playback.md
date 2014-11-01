@@ -103,7 +103,11 @@ published : true
 
 当然实际的情况，要比这复杂的多，下面是状态间过度的流程图：
 
-![image](http://chiemyblog.qiniudn.com/mediaplayer_state_diagram.gif)
+<figure>
+	<a href="http://chiemyblog.qiniudn.com/mediaplayer_state_diagram.gif">
+		<img src="http://chiemyblog.qiniudn.com/mediaplayer_state_diagram.gif">
+	</a>
+</figure>
 
 图中有两种类型的线。由一个箭头开始的线代表同步的方法调用，而以双箭头开头的代表的线代表异步方法调用。
 
