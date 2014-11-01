@@ -25,13 +25,17 @@ published : true
 
 1.如果涉及到网络播放，那么需要加入网络权限：
 
+{% highlight xml %}
 	<uses-permission android:name="android.permission.INTERNET" />
+{% endhighlight %}
 	
 这个权限我们已经非常熟悉了。
 
 2.如果你的应用想保持屏幕常亮或者不让设备休眠，或需要使用`MediaPlayer.setScreenOnWhilePlaying()`或者`MediaPlayer.setWakeMode()`方法，必须加入[Wake Lock](http://developer.android.com/reference/android/Manifest.permission.html#WAKE_LOCK)权限：
 
+{% highlight xml %}
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
+{% endhighlight %}
 	
 ##2.MediaPlayer的使用
 ###2.2.不同资源种类的基本用法
@@ -46,39 +50,47 @@ published : true
 ####2.2.1.播放保存在`res/raw/`目录下的媒体资源
 使用示例：
 
+{% highlight java %}
 	MediaPlayer mediaPlayer = MediaPlayer.create(context, R.raw.sound_file_1);
 	mediaPlayer.start(); //不需要调用 prepare(); create()方法
+{% endhighlight %}
 	
 与以下两种方式区别较大。
 	
 ####2.2.2.播放设备内的资源
 保存在媒体库中的资源，可以通过如下方式
 
+{% highlight java %}
 	Uri myUri = ....; //通过Content Resovler获取
 	MediaPlayer mediaPlayer = new MediaPlayer();
 	mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 	mediaPlayer.setDataSource(getApplicationContext(), myUri);
 	mediaPlayer.prepare();
 	mediaPlayer.start(); //prepare()回调后才能调用
+{% endhighlight %}
 	
 >注：对`setAudioStreamType`作用不是很了解，文档中叶没有说明，只说了必须在`prepare()`之前调用，否则无效。
 初步感觉，它与音量有些关系，因为在系统设置中我们可以对闹钟、音乐、铃声设置不同的音量，通过`setAudioStreamType`方法设置了不同类型，可能音量就会不同。当然可能还会有更深层次的作用，暂时还没有找到答案。
 	
 如果知道资源的明确路径：
 
+{% highlight java %}
 	String path = ....;
 	....
 	mediaPlayer.setDataSource(path);
 	....
+{% endhighlight %}
 	
 ####2.2.3通过HTTP流播放远程URL
 
+{% highlight java %}
 	String url = "http://........";
 	MediaPlayer mediaPlayer = new MediaPlayer();
 	mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 	mediaPlayer.setDataSource(url);
 	mediaPlayer.prepare(); // 耗时较长! (因为缓冲等操作)
 	mediaPlayer.start(); 
+{% endhighlight %}
 
 ###2.3.注意点
 ###2.3.1.Prepare的异步调用
@@ -110,8 +122,10 @@ published : true
 ###2.3.4.MediaPlayer的释放
 MediaPlayer会消耗很多系统资源，因此不要在你不需要的时候长时间保持一个MediaPlayer实例。当你使用完成之后一定要调用`release()`方法，释放资源。
 
+{% highlight java %}
 	mediaPlayer.release();
 	mediaPlayer = null;
+{% endhighlight %}
 	
 	
 ##3.和Service一同使用
@@ -119,6 +133,7 @@ MediaPlayer会消耗很多系统资源，因此不要在你不需要的时候长
 
 代码示例：
 
+{% highlight java %}
 	public class MyService extends Service implements MediaPlayer.OnPreparedListener {
     	private static final String ACTION_PLAY = "com.example.action.PLAY";
     	MediaPlayer mMediaPlayer = null;
@@ -137,12 +152,14 @@ MediaPlayer会消耗很多系统资源，因此不要在你不需要的时候长
         	player.start();
     	}
 	}
+{% endhighlight %}
 
 ###3.1.作为前台服务（foreground service）使用
 后台服务一般适用于一些不需要用户知悉的操作，如同步数据，下载内容等。但似乎不太适合音乐播放，因为即使是在后台播放音乐，用户还是想保持与应用的交互能力，当用户想停止音乐时，只能通过点击桌面应用图标，找到音乐播放界面，并按下那个暂停按钮才行吗？遇到这样的应用，我肯定会卸载掉的！
 
 让服务作为前台服务，我们需要借助Notifycation，在Service中调用`startForeground()`方法，代码示例：
 
+{% highlight java %}
 	String songName;
 	// assign the song name to songName
 	PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0,
@@ -155,6 +172,7 @@ MediaPlayer会消耗很多系统资源，因此不要在你不需要的时候长
 	notification.setLatestEventInfo(getApplicationContext(), "MusicPlayerSample",
                 "Playing: " + songName, pi);
 	startForeground(NOTIFICATION_ID, notification);
+{% endhighlight %}
 
 如此你的定义的Notifycation就能出现在通知栏了，在不需要的时候调用`stopForeground(true)`，使其不在通知栏显示。
 
@@ -165,6 +183,7 @@ MediaPlayer会消耗很多系统资源，因此不要在你不需要的时候长
 
 请求焦点：
 
+{% highlight java %}
 	AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 	int result = audioManager.requestAudioFocus(this, AudioManager.STREAM_MUSIC,
     	AudioManager.AUDIOFOCUS_GAIN);
@@ -172,6 +191,7 @@ MediaPlayer会消耗很多系统资源，因此不要在你不需要的时候长
 	if (result != AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
 		// could not get audio focus.
 	}
+{% endhighlight %}
 
 `requestAudioFocus()`方法的第一个参数是`AudioManager.OnAudioFocusChangeListener`，它的`onAudioFocusChange(int focusChange)`会在焦点发生变化时被调用。`focusChange`的取值和含义如下：
 
@@ -182,6 +202,7 @@ MediaPlayer会消耗很多系统资源，因此不要在你不需要的时候长
 
 代码示例：
 
+{% highlight java %}
 	public void onAudioFocusChange(int focusChange) {
     	switch (focusChange) {
         	case AudioManager.AUDIOFOCUS_GAIN:
@@ -212,6 +233,7 @@ MediaPlayer会消耗很多系统资源，因此不要在你不需要的时候长
             break;
     	}
     }
+{% endhighlight %}
     
 工具类：
 
