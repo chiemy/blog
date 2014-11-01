@@ -268,7 +268,7 @@ public class AudioFocusHelper implements AudioManager.OnAudioFocusChangeListener
 {% endhighlight %}
 
 
-###5.处理AUDIO_BECOMING_NOISY意图
+##5.处理AUDIO_BECOMING_NOISY意图
 在某些情况下，我们的音乐会显得很吵闹，例如，你正使用耳机在公司里听音乐，此时，你无意中将耳机拔掉了，突然冒出来的声音把你的同事吓了一跳。像这种情况显然是我们不想发生的。我们只需要注册一个广播接收器，来接收相应的事件进行处理就可以了。
 
 在Manifest中注册：
@@ -295,7 +295,7 @@ public class MusicIntentReceiver extends android.content.BroadcastReceiver {
 }
 {% endhighlight %}
 
-###6.从Content Resolver中检索音频
+##6.从Content Resolver中检索音频
 
 {% highlight java %}
 ContentResolver contentResolver = getContentResolver();
