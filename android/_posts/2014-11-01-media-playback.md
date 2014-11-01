@@ -272,6 +272,7 @@ public class AudioFocusHelper implements AudioManager.OnAudioFocusChangeListener
 {% endhighlight %}
 
 
+
 ##5.处理AUDIO_BECOMING_NOISY意图
 在某些情况下，我们的音乐会显得很吵闹，例如，你正使用耳机在公司里听音乐，此时，你无意中将耳机拔掉了，突然冒出来的声音把你的同事吓了一跳。像这种情况显然是我们不想发生的。我们只需要注册一个广播接收器，来接收相应的事件进行处理就可以了。
 
@@ -333,6 +334,34 @@ mMediaPlayer.setDataSource(getApplicationContext(), contentUri);
 
 // ...prepare and start...
 {% endhighlight %}
+
+##7.使用wake locks
+在设备进入休眠状态时，系统会尝试关闭一些不必要的特性来节约电量，比如Cpu，WiFi硬件等。如果我们的服务在播放或缓冲音乐，我们可能不希望系统打断我们。如果我们希望我们的服务在此条件下继续运行，我们需要使用`wake locks`。它可以告诉系统我们的应用在手机处于空闲时，仍然想保持对一些特性的访问。
+
+为确保MediaPlayer播放音乐时Cpu继续运行，当初始化MediaPlayer时调用`setWakeMode()`方法来持有`wake locks`，当暂停或停止时会自动释放。
+
+{% highlight java %}
+mMediaPlayer = new MediaPlayer();
+// ... other initialization here ...
+mMediaPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
+{% endhighlight %}
+
+wake locks只能确保CPU的持续运行，如果我们在使用WiFi播放网络音乐，那么我们同时也需要`WifiLock`。
+
+{% highlight java %}
+WifiLock wifiLock = ((WifiManager) getSystemService(Context.WIFI_SERVICE))
+    .createWifiLock(WifiManager.WIFI_MODE_FULL, "mylock");
+
+wifiLock.acquire();
+{% endhighlight %}
+
+在暂停或停止，或者不需要网络时，释放：
+
+{% highlight java %}
+wifiLock.release();
+{% endhighlight %}
+
+>特别提醒：我们需要谨慎的使用此功能，因为它会缩短电池寿命。
 
 ##未完待续……
 内容预告-线控、蓝牙控制
