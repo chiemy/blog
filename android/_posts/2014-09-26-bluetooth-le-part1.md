@@ -3,7 +3,7 @@ layout: post
 type: android
 title: "低功耗蓝牙（1）"
 modified: 2014-9-26 10:16:11
-excerpt: "RecyclerView的使用方法"
+excerpt: "BLE简单介绍"
 tags: [android, bluetooth ,翻译]
 comments: true
 published : true
