@@ -30,7 +30,7 @@ public class SampleActivity extends Activity {
 
 但是泄露发生在哪？又是怎么发生的呢？在查明问题的根源之前，我们先看看我们所了解的东西：
 
-1. 当应用程序启动的时候，android框架会未主线程创建一个`Looper`对象，它实现了一个简单的消息队列，一个接一个的传递`Message`对象，所有主要的应用框架事件（如Activit生命周期方法的调用，按钮的点击事件等）都被包含在一个被添加到此消息队列中Message对象当中，主线程的Looper对象存在于整个应用的生命周期中。
+1. 当应用程序启动的时候，android框架会为主线程创建一个`Looper`对象，它实现了一个简单的消息队列，一个接一个的传递`Message`对象，所有主要的应用框架事件（如Activit生命周期方法的调用，按钮的点击事件等）都被包含在一个被添加到此消息队列中Message对象当中，主线程的Looper对象存在于整个应用的生命周期中。
 2. 当在主线程中实例化一个Handler的时候，它就与此Looper的消息队列产生了联系。推送到消息队列中的消息保存着对Handler的引用，因此能够调用Handler的handleMessage(Message) 方法。
 3. 在java中，非静态内部及匿名类，会保留对外部类的引用，相反静态内部类则不会
 
@@ -64,7 +64,7 @@ public class SampleActivity extends Activity {
 
 当Activity结束时，延迟的消息在执行之前会一直保留在主线程中达10分钟，这个消息保留着一个对Activity中Handler的引用，而Handler又持有一个对外部类（SampleActivity）的引用，此引用会一直持续到Message执行，因此会阻止垃圾回收器对activity进行回收，也会造成应用资源的阻塞。第15行的匿名Runnable对象也会造成这样的问题。非静态的匿名内部类会持有对外部类的引用，因此造成context阻塞。
 
-为了解决这个问题，我们可以在新的文件中创建Handler对象，或者将其声明为静态内部类。如果在Handler内部想调用activity中得方法，需要让Handler持有一个对activity的弱引用（WeakReference）。未解决匿名Runnable对象造成的内存泄露问题，我们也要声明未静态的。
+为了解决这个问题，我们可以在新的文件中创建Handler对象，或者将其声明为静态内部类。如果在Handler内部想调用activity中得方法，需要让Handler持有一个对activity的弱引用（WeakReference）。为解决匿名Runnable对象造成的内存泄露问题，我们也要声明为静态的。
 
 {% highlight java %}
 public class SampleActivity extends Activity {
