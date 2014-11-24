@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Handlers和内部类是怎么使Context泄露的？"
+title: "Handlers和内部类是如何使Context泄露的"
 modified: 2014-11-24 22:20:12
 excerpt: "在使用Handler和内部类时，要注意一些问题，防止Context的泄露"
 tags: [android, Tips]
