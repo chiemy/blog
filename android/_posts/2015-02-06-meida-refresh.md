@@ -13,14 +13,14 @@ comments: true
 但如果我们在开机状态下，在sdcard内增加或删除一些媒体文件时，系统并不会自动扫描，因此媒体库不会更新（除非自行向媒体数据库中添加或删除）
 ##2.如何让媒体库更新？
 ###2.1.增加
-####2.1.1.在Android 4.4之前我们可以通过以下方式，使系统扫描sdcard并更新媒体数据库：
+###2.1.1.在Android 4.4之前我们可以通过以下方式，使系统扫描sdcard并更新媒体数据库：
 
 	Intent intent = new Intent(Intent.ACTION_MEDIA_MOUNTED);
 	intent.setData(Uri.parse("file://" + Environment.getExternalStorageDirectory().getAbsolutePath()));
 	sendBroadcast(intent);
 发送一个广播，让系统更新媒体数据库，也适用于删除媒体文件；
 
-####2.1.2 在Android 4.4之后
+###2.1.2 在Android 4.4之后
 但在Android 4.4中，限制了系统应用才有权限使用广播通知系统扫描SD卡，如果普通应用发送此广播将会出现异常：`Permission Denial: not allowed to send broadcast android.intent.action.MEDIA_MOUNTED`
 
 可以采用如下解决方式：
