@@ -52,25 +52,17 @@ comments: true
 系统的ContentResolver为我们提供了查询媒体库的方法，在媒体库里保存着一些媒体文件的信息，如名称、文件路径、播放时长等信息。我们可以通过它来获取相应媒体文件的播放时长。当然首先要保证媒体库里有该文件的信息（关于媒体库更新，见[Android媒体库更新问题研究](http://chiemy.com/android/meida-refresh/)）
 
 {% highlight java %}
-
-	private Uri contentUri = Media.EXTERNAL_CONTENT_URI;
-	private String[] columns = { MediaStore.Audio.Media._ID, // 歌曲ID
+	Uri contentUri = Media.EXTERNAL_CONTENT_URI;
+	String[] columns = { MediaStore.Audio.Media._ID, // 歌曲ID
 			MediaStore.Audio.Media.DURATION,// 歌曲的总播放时长
 	};
-	
-	private String getDurationContext context, String path) {
-		String s = "00:00";
-		ContentResolver mResolver = context.getContentResolver();
-		String selection = MediaStore.Audio.Media.DATA + "=?";
-		String selectionArgs[] = {path};
-		Cursor cursor = mResolver.query(contentUri, null, selection, selectionArgs,
-				null);
-		if(cursor != null && cursor.moveToFirst()){
-			int duration = cursor.getInt(cursor.getColumnIndex(Media.DURATION));
-			s =  StringUtils.formatDuration(duration);
-			cursor.close();
-		}
-		return s;
+	ContentResolver mResolver = context.getContentResolver();
+	String selection = MediaStore.Audio.Media.DATA + "=?";
+	String selectionArgs[] = {path};
+	Cursor cursor = mResolver.query(contentUri, null, selection, selectionArgs,null);
+	if(cursor != null && cursor.moveToFirst()){
+		int duration = cursor.getInt(cursor.getColumnIndex(Media.DURATION));
+		cursor.close();
 	}
 {% endhighlight%}
 
@@ -80,19 +72,13 @@ comments: true
 也可以通过它获取媒体文件时长，具体操作如下(Api 10+)：
 
 {% highlight java %}
-
-	@SuppressLint("NewApi") 
-	private long getDuration(String path) {
-		MediaMetadataRetriever retriever = new MediaMetadataRetriever();
-		retriever.setDataSource(path); //在获取前，设置文件路径（应该只能是本地路径）
-		String duration =  
-				retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
-		retriever.release(); //释放
-		if(TextUtils.isEmpty(duration)){
-			return "00:00";
-		}
-		long dur = Long.parseLong(duration);
-		return dur;
+	MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+	retriever.setDataSource(path); //在获取前，设置文件路径（应该只能是本地路径）
+	String duration =  retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
+	retriever.release(); //释放
+	if(TextUtils.isEmpty(duration)){
+		return "00:00";
 	}
+	long dur = Long.parseLong(duration);
 {% endhighlight%}
 
