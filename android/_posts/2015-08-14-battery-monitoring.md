@@ -65,7 +65,7 @@ boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
 
 {%endhighlight%}
 
-在广播接收器中，我们可以监听到这两个事件
+在广播接收器中，我们可以像之前一样获取充电状态灯信息。
 
 {%highlight java%}
 
@@ -130,8 +130,6 @@ float batteryPct = level / (float)scale;
 </receiver>
 
 {%endhighlight%}
-
-
 
 
 
