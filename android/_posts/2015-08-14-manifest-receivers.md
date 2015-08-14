@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "监控电量和充电状态"
+title: “对BroadcastReceiver的控制"
 modified: 2015-08-14 13:50:37
-excerpt: ""
+excerpt: “如何对注册在manifest文件中的广播进行开关操作"
 tags: [android, training, performance]
 published: true
 ---
