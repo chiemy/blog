@@ -1,6 +1,6 @@
 ---
 layout: post
-title: “对BroadcastReceiver的控制"
+title: "对BroadcastReceiver的控制"
 modified: 2015-08-14 13:50:37
 excerpt: “如何对注册在manifest文件中的广播进行开关操作"
 tags: [android, training, performance]
