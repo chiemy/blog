@@ -11,6 +11,8 @@ published: true
 
  `BatteryManager` 会广播一个包含所有电池和充电信息的粘性的intent（sticky intent），其中就包含当前充电状态。
 
+>Sticky Intent是Broadcast Intent的有用变体，可以保存它们最后一次广播的值，并且当有一个新的接收器被注册为接收该广播时，它们会把这些值作为Intent返回。
+
 由于是粘性的intent，我们不需要注册一个广播接收器，在调用`registerReceiver`方法时传入`null`作为接收器即可，利用方法返回的`intent`即可获取电池状态，下面是示例代码：
 
 {%highlight java%}
@@ -65,7 +67,7 @@ boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
 
 在广播接收器中，我们可以监听到这两个事件
 
-{%highlight xml%}
+{%highlight java%}
 
   public class PowerConnectionReceiver extends BroadcastReceiver {
 
@@ -128,8 +130,6 @@ float batteryPct = level / (float)scale;
 </receiver>
 
 {%endhighlight%}
-
-
 
 
 
