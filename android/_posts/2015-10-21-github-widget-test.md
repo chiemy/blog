@@ -7,6 +7,6 @@ tags: [测试]
 published: true
 ---
 
-<div class="github-widget" data-repo="JoelSutherland/GitHub-jQuery-Repo-Widget"></div>
+<div class="github-widget" data-repo="chiemy/LoadingImageView"></div>
 
 
