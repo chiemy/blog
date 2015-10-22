@@ -10,7 +10,7 @@ published: true
 ##1.定义
 Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template method Lets subclasses redefine certain steps of an algorithm without changing the algorithm structrue.
 
-在某个操作中定义一个逻辑的框架，将一些步骤延迟到子类里。使得子类在改变算法结构的情况下可以重新定义该算法的某些步骤。
+在某个操作中定义一个逻辑的框架，将一些步骤延迟到子类里。使得子类在不改变算法结构的情况下可以重新定义该算法的某些步骤。
 
 ![通用类图](https://github.com/chiemy/JavaDesignPatterns/blob/master/TemplateMethodPattern/%E9%80%9A%E7%94%A8%E7%B1%BB%E5%9B%BE.png?raw=true)
 
@@ -28,7 +28,11 @@ AbstractClass叫抽象模板，它的方法分为两类：
 
 > 一般被final修饰，防止恶意篡改。
 
+- 钩子方法
+
+
 ##2.优缺点
+
 ###（1）优点
 
 - 封装不变部分，扩展可变部分
@@ -45,7 +49,30 @@ AbstractClass叫抽象模板，它的方法分为两类：
 - 重构时，把相同的代码抽取到父类中，然后通过钩子函数约束其行为。
 
 ##4.扩展，钩子方法的运用
-钩子方法的引入使得子类可以控制父类的行为
+钩子方法的引入使得子类可以控制父类的行为。钩子方法是被模板方法调用的，从而起到影响到模板方法的运行结果。
+
+Example:
+
+	public class Algorithm {
+		public void templateMethod() {
+				:
+				.
+			hookMethod();
+				.
+				:
+		}
+
+		public void hookMethod() {
+			// default implementation
+		}
+	}
+
+	public class RefinedAlgorithm extends Algorithm {
+		public void hookMethod() {
+			// refined implementation
+		}
+	}
+
 
 ##5.示例代码
 
