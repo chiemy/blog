@@ -44,16 +44,15 @@ Provide a surrogate or placeholder for another object to control access to it.
 ##4.扩展
 
 ###4.1普通代理
-
 调用者只能访问代理角色，而不能访问真实角色，调用者必须知道代理的存在。
 
 [示例代码](https://github.com/chiemy/JavaDesignPatterns/tree/master/ProxyPattern)
 
 ###4.2强制代理
+调用者直接调用真实的角色，而不用关心代理是否存在，其代理的产生是由真实角色决定的。
+
 
 [示例代码](https://github.com/chiemy/JavaDesignPatterns/tree/master/ProxyPattern)
-
-调用者直接调用真实的角色，而不用关心代理是否存在，其代理的产生是由真实角色决定的。
 
 ##5.示例代码
 
