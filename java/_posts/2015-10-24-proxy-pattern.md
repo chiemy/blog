@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[设计模式]代理模式-Proxy Pattern"
-modified: 2015-10-23 14:31:43
+modified: 2015-10-27 10:49:13
 excerpt: "设计模式之代理模式"
 tags: [设计模式, design patterns]
 published: true
