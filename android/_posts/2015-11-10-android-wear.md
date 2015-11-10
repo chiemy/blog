@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "如何创建、运行可穿戴设备App?"
+title: "如何创建、运行Android Wear设备App?"
 modified: 2015-11-10 13:17:51
-excerpt: "本文将介绍如何创建、运行可穿戴设备的App"
+excerpt: "本文将介绍如何创建、运行Android Wear设备App"
 tags: [android, android wear]
 published: true
 ---
@@ -83,7 +83,6 @@ published: true
 
 ![Moto 360demo运行界面](../hello_world.png)
 
-
 ##4.Tips
 
 ###4.1 卸载应用
@@ -100,7 +99,11 @@ published: true
 
 ![Moto 360demo运行界面](../watch_captrue.png)
 
+###4.3 Android Wear设备应用与手机应用的关系
+由于Android Wear设备上不支持直接安装应用，我们需要将手机应用和Android Wear应用一起打包发布。当用户在手机上安装手机应用时，手机会自动将其关联的Android Wear应用推动到与手机配对的设备上。之后的文章将会介绍如何一起打包。
 
-##5.示例工程
-[GitHub：AndroidWearDemo](https://github.com/chiemy/AndroidWearDemo)
+> 注：当我们在Android Studio进行调试，将应用安装到手机端时，手机并不会自动推送安装，安装的应用必须使用正式的appkey进行签名。
+
+
+**示例工程[GitHub：AndroidWearDemo](https://github.com/chiemy/AndroidWearDemo)**
 
