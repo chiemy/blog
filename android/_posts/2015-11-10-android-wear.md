@@ -102,7 +102,7 @@ published: true
 ###4.3 Android Wear设备应用与手机应用的关系
 由于Android Wear设备上不支持直接安装应用，我们需要将手机应用和Android Wear应用一起打包发布。当用户在手机上安装手机应用时，手机会自动将其关联的Android Wear应用推动到与手机配对的设备上。之后的文章将会介绍如何一起打包。
 
-> 注：当我们在Android Studio进行调试，将应用安装到手机端时，手机并不会自动推送安装，安装的应用必须使用正式的appkey进行签名。
+> 注：当我们在Android Studio进行调试，将应用安装到手机端时，手机并不会自动推送安装，手机端的应用必须使用正式的appkey进行签名才行。
 
 
 **示例工程[GitHub：AndroidWearDemo](https://github.com/chiemy/AndroidWearDemo)**
