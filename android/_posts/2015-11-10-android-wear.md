@@ -75,3 +75,19 @@ published: true
 
 ![Moto 360demo运行界面](../hello_world.png)
 
+
+##4.Tips
+###4.1 卸载应用
+执行命令如下命令即可：
+	
+	adb -s localhost:4444 uninstall 包名
+	
+卸载的速度还是很快的，就是向手表发了一个指令。
+
+###4.2 手表屏幕截屏
+手机端的Android Wear自带截图功能，但是发送截屏指令后虽然提示截屏成功，但是并不能获取这个文件，不知道是什么问题。
+
+还有一种方式，就是通过Android Studio的截屏工具截屏。在"Android Monitor"标签下，我们选择我们的手表，然后点击“照相机”图标就可以截屏了。
+
+![Moto 360demo运行界面](../watch_captrue.png)
+
