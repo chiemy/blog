@@ -64,23 +64,23 @@ published: true
 ##3.创建工程
 下面，我们创建一个工程，看一下在Moto 360上运行的效果吧！
 
-首先，打开Android Studio，点击“Start a new Android Studio project”，这个步骤与创建普通工程没有区别，填写好工程信息之后，我们进入下一个界面，这步比较关键，选中"Wear"项，如图：
+首先，打开Android Studio，点击“Start a new Android Studio project”，这个步骤与创建普通工程没有区别，填写好工程信息之后，我们进入下一个界面，这步比较关键，选中“Wear”项，如图：
 
 <img src="../create_wear_project.png" alt="Drawing" width="800" />
 
 
-接下来的过程比创建普通工程多了一个步骤，在为手机端应用添加Activity之后，有个为Android Wear应用添加Activity的步骤。这个步骤我们先不仔细探究，一路点"Next"，我有些迫不及待了！
+接下来的过程比创建普通工程多了一个步骤，在为手机端应用添加Activity之后，有个为Android Wear应用添加Activity的步骤。这个步骤我们先不仔细探究，一路点“Next”，我有些迫不及待了！
 
-等待工程创建好后，我们看下目录结构，发现创建了两个Module，一个名为"mobile"，另一个名为"wear"，通过名称应该就能理解是什么意思了。
+等待工程创建好后，我们看下目录结构，发现创建了两个Module，一个名为“mobile”，另一个名为“wear”，通过名称应该就能理解是什么意思了。
 
 <img src="../wear_project.png" alt="Drawing" width="300" />
 
-下面到了最激动人心的时刻了，让我们运行一下来看看效果！在运行按钮前的选择框，我们选择"wear"这个module，然后点击运行，如果之前的配置正确，手表处于连接状态的话，对话框里会显示手表的运行选项，我们双击手表项（图中的Motorola Moto 360）运行。
+下面到了最激动人心的时刻了，让我们运行一下来看看效果！在运行按钮前的选择框，我们选择“wear”这个module，然后点击运行，如果之前的配置正确，手表处于连接状态的话，对话框里会显示手表的运行选项，我们双击手表项（图中的Motorola Moto 360）运行。
 
 <img src="../run_dialog.png" alt="Drawing" width="500" />
 
 
-受到蓝牙传输速度的影响，可能要等上一段时间。稍后，我们就会在手表上看到熟悉的"Hello World"界面了！
+受到蓝牙传输速度的影响，可能要等上一段时间。稍后，我们就会在手表上看到熟悉的“Hello World”界面了！
 
 <img src="../hello_world.png" alt="Drawing" width="200" />
 
@@ -97,7 +97,7 @@ published: true
 ###4.2 手表屏幕截屏
 手机端的Android Wear自带截图功能，但是发送截屏指令后虽然提示截屏成功，但是并不能获取这个文件，不知道是什么问题。
 
-还有一种方式，就是通过Android Studio的截屏工具截屏。在"Android Monitor"标签下，我们选择我们的手表，然后点击“照相机”图标就可以截屏了。
+还有一种方式，就是通过Android Studio的截屏工具截屏。在“Android Monitor”标签下，我们选择我们的手表，然后点击“照相机”图标就可以截屏了。
 
 <img src="../watch_captrue.png" alt="Moto 360demo运行界面" width="400" />
 
