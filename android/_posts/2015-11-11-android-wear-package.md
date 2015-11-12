@@ -8,7 +8,7 @@ published: true
 ---
 在上篇文章中([上篇文章](http://chiemy.com/android/android-wear-create/))，我们介绍了如何创建Android Wear工程，并且在Moto 360上进行调试。之前我们都是通过Android Studio直接将测试工程安装到Android Wear的，那么如何实现安装手机应用的同时，自动将Android Wear应用推送到Moto 360上呢？
 
-##1.用Android Studio上打包
+##1.用Android Studio打包
 步骤：
 
 1.将Android wear module的manifest文件中添加的权限，同样声明到手机module的manifest文件中。例如，Android wear module使用到了VIBRATE权限，那么也要将此权限添加到手机module的manifest文件中。
