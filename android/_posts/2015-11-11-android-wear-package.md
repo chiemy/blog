@@ -4,7 +4,7 @@ title: "Android Wear设备App打包"
 modified: 2015-11-10 13:17:51
 excerpt: "本文将介绍如何将Android Wear应用与手机应用一同打包"
 tags: [android, android wear]
-published: false
+published: true
 ---
 在上篇文章中([上篇文章](http://chiemy.com/android/android-wear-create/))，我们介绍了如何创建Android Wear工程，并且在Moto 360上进行调试。之前我们都是通过Android Studio直接将测试工程安装到Android Wear的，那么如何实现安装手机应用的同时，自动将Android Wear应用推送到Moto 360上呢？
 
