@@ -50,7 +50,7 @@ Android的一些基本控件我们是可以使用的，为了更好的适应Andr
 ###BoxInsetLayout
 能够根据屏幕形状，进行自动调整的布局控件，使得在圆形屏幕下能够完整的显示布局。
 
-我们通过`app:layout_box`属性来指定显示区域，可能的取值及布局的位置：
+我们通过为其子布局指定`app:layout_box`属性来指定显示区域，可能的取值及布局的位置：
 
 <img src="http://7o4zgd.com1.z0.glb.clouddn.com/uilib02.png" width="200"/>
 
@@ -63,6 +63,32 @@ Android的一些基本控件我们是可以使用的，为了更好的适应Andr
 - **<font color="#FFD700">left</font>** 图中，黄线左侧的区域
 
 - **all** 中间灰色区域
+
+以上属性可组合使用。
+
+使用示例：
+
+{% highlight java %}
+	<android.support.wearable.view.BoxInsetLayout
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:app="http://schemas.android.com/apk/res-auto"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent">
+
+    	<FrameLayout
+        	android:layout_width="match_parent"
+        	android:layout_height="match_parent"
+        	app:layout_box="all">
+
+        	<TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff0000"
+            android:text="@string/hello_round" />
+
+    	</FrameLayout>
+	</android.support.wearable.view.BoxInsetLayout>
+{% endhighlight %}
 
 
 
