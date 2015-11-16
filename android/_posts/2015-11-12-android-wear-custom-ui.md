@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Android Wear应用布局的创建"
+title: "Android Wear应用控件介绍"
 modified: 2015-11-11 14:51:03
-excerpt: "本文将介绍如何创建Android wear布局及一些基本控件的使用"
+excerpt: "本文将介绍Android wear应用中一些基本控件的使用"
 tags: [android, android wear]
 published: true
 ---
