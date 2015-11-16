@@ -69,25 +69,24 @@ Android的一些基本控件我们是可以使用的，为了更好的适应Andr
 使用示例：
 
 {% highlight java %}
-	<android.support.wearable.view.BoxInsetLayout
-    	xmlns:android="http://schemas.android.com/apk/res/android"
-    	xmlns:app="http://schemas.android.com/apk/res-auto"
-    	android:layout_width="match_parent"
-    	android:layout_height="match_parent">
+<android.support.wearable.view.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    	<FrameLayout
-        	android:layout_width="match_parent"
-        	android:layout_height="match_parent"
-        	app:layout_box="all">
+   	<FrameLayout
+      	android:layout_width="match_parent"       		android:layout_height="match_parent"
+       app:layout_box="all">
 
-        	<TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ff0000"
-            android:text="@string/hello_round" />
+       <TextView
+       	android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="#ff0000"
+          android:text="@string/hello_round" />
 
-    	</FrameLayout>
-	</android.support.wearable.view.BoxInsetLayout>
+    </FrameLayout>
+</android.support.wearable.view.BoxInsetLayout>
 {% endhighlight %}
 
 ###WearableListView
@@ -96,7 +95,7 @@ Android的一些基本控件我们是可以使用的，为了更好的适应Andr
 ####用法
 - 创建自定义适配器
 
-WearableListView的`setApdater()`方法接收的参数是`android.support.v7.widget.RecyclerView.Adapter`，WearableListView同时提供了一个继承自此Apdater的子类`WearableListView.Adapter`，我们选择继承此适配器来创建一个自定义适配器。
+WearableListView的`setApdater()`方法接收的参数是`android.support.v7.widget.RecyclerView.Adapter`，WearableListView同时提供了一个继承自此Apdater的子类`WearableListView.Adapter`，我们可以选择继承此适配器来创建一个自定义适配器。
 
 {% highlight java %}
 private static class MyAdapter extends WearableListView.Adapter {
@@ -151,6 +150,7 @@ private static class MyAdapter extends WearableListView.Adapter {
     }
 {% endhighlight %}
 
+
 - 创建带动画效果的Item视图
 
 WearableListView可以通过很简单的方式为item实现滑动时的动画效果，只需要让自定义视图实现`WearableListView.OnCenterProximityListener`接口，然后在`onCenterPosition()`和`onNonCenterPosition()`回调方法中对动画进行管理即可，示例如下：
@@ -195,11 +195,13 @@ public class WearableListItemLayout extends LinearLayout implements WearableList
 }
 {% endhighlight %}
 
+
 - Item点击监听
 
-{% highlight java %}
+
 WearableListView并没有提供直接设置Item点击监听的方法，需要通过其`setClickListener(WearableListView.ClickListener listener)`方法间接实现，如下：
 
+{% highlight java %}
 wearableLv.setClickListener(new WearableListView.ClickListener() {
                     @Override
                     public void onClick(WearableListView.ViewHolder viewHolder){
