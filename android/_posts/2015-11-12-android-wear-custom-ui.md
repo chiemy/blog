@@ -18,34 +18,37 @@ Android的一些基本控件我们是可以使用的，为了更好的适应Andr
 
 首先我们将WatchViewStub作为Activity的根布局
 
-	<android.support.wearable.view.WatchViewStub
-    	xmlns:android="http://schemas.android.com/apk/res/android"
-    	xmlns:app="http://schemas.android.com/apk/res-auto"
-    	xmlns:tools="http://schemas.android.com/tools"
-    	android:id="@+id/watch_view_stub"
-    	android:layout_width="match_parent"
-    	android:layout_height="match_parent"
-    	app:rectLayout="@layout/rect_activity_wear"
-    	app:roundLayout="@layout/round_activity_wear">
-	</android.support.wearable.view.WatchViewStub>
-	
+{% highlight java %}
+<android.support.wearable.view.WatchViewStub
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/watch_view_stub"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:rectLayout="@layout/rect_activity_wear"
+    app:roundLayout="@layout/round_activity_wear">
+</android.support.wearable.view.WatchViewStub>
+{% endhighlight %}
+
 其中，`app:rectLayout`属性用来指定方形屏幕所引用的布局文件，`app:roundLayout`用于指定圆形屏幕所引用的布局文件。
 
 由于是运行时填充的，那么布局里包含的控件我们需要在填充完毕后才能获取：
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-    	super.onCreate(savedInstanceState);
-    	setContentView(R.layout.activity_wear);
-
-    	WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
-    	stub.setOnLayoutInflatedListener(new 			WatchViewStub.OnLayoutInflatedListener() {
+{% highlight java %}
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_wear);
+    WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
+    stub.setOnLayoutInflatedListener(new 			WatchViewStub.OnLayoutInflatedListener() {
         		@Override 
         		public void onLayoutInflated(WatchViewStub stub) {
             		// 在这里我们可以获取相应的控件了
         		}
-    	});
-	}
+    });
+}
+{% endhighlight %}
 
 ###BoxInsetLayout
 能够根据屏幕形状，进行自动调整的布局控件，使得在圆形屏幕下能够完整的显示布局。
@@ -74,17 +77,14 @@ Android的一些基本控件我们是可以使用的，为了更好的适应Andr
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
    	<FrameLayout
       	android:layout_width="match_parent"       		android:layout_height="match_parent"
        app:layout_box="all">
-
        <TextView
        	android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:background="#ff0000"
           android:text="@string/hello_round" />
-
     </FrameLayout>
 </android.support.wearable.view.BoxInsetLayout>
 {% endhighlight %}
@@ -196,8 +196,8 @@ public class WearableListItemLayout extends LinearLayout implements WearableList
 {% endhighlight %}
 
 
-- Item点击监听
 
+- Item点击监听
 
 WearableListView并没有提供直接设置Item点击监听的方法，需要通过其`setClickListener(WearableListView.ClickListener listener)`方法间接实现，如下：
 
