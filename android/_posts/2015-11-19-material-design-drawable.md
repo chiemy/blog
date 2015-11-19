@@ -8,11 +8,11 @@ published: true
 ---
 本文示例工程：[MaterialDesignDrawableDemo](https://github.com/chiemy/MaterialDesignDrawableDemo)
 
-###为Drawable着色
+###1.为Drawable着色
 
 <img src="http://7o4zgd.com1.z0.glb.clouddn.com/tint_drawable.png" width="300"><img>
 
-####Android 5.0之前
+####1.1 Android 5.0之前
 在Android 5.0之前，我们可以使用v4支持库里的`DrawableCompat`类进行相关操作，示例如下：
 
 {% highlight java %}
@@ -23,7 +23,7 @@ DrawableCompat.setTintList(drawable, ColorStateList.valueOf(Color.parseColor("#3
 iv.setBackground(drawable);
 {% endhighlight %}
 
-####Android 5.0之后
+####1.2 Android 5.0之后
 在Android 5.0之后，系统为我们提供了相应的Api，实现起来非常简单。
 
 我们通过调用对象的`setTint()`方法对`BitmapDrawable`, `NinePatchDrawable` 或者 `VectorDrawable`进行着色处理，在xml文件中我们也可以通过相应的tint属性直接进行着色处理。
@@ -32,7 +32,7 @@ iv.setBackground(drawable);
 
 对`ImageView`的图片进行着色，我们使用xml文件中的`android:tint`属性，或者在代码中，我们可以使用ImageView的`setColorFilter(int color)`方法或者`getDrawable().setTint(color)`方法。
 
-###从图片中提取颜色
+###2.从图片中提取颜色
 在Android Support Library r21及之前的版本中，包含一个`Palette`类，通过它我们可以从一张图片中提取出图片的主要颜色，能提取的颜色包括：
 
 - Vibrant
@@ -42,7 +42,7 @@ iv.setBackground(drawable);
 - Muted dark
 - Muted light
 
-####使用：
+####2.1使用：
 添加依赖
 
 {% highlight java %}
@@ -61,7 +61,7 @@ Palette palette = Palette.from(bitmapDrawable.getBitmap()).generate();
 int vibrantColor = palette.getVibrantColor(defaultColor);
 {% endhighlight %}
 
-###Vector Drawable（矢量图）的使用
+###3.Vector Drawable（矢量图）的使用
 在Android 5.0(API level 21)及以后，我们可以使用矢量图了。矢量图的好处在于，一个图形即可以适配任意分辨率，而又不会造成失真。
 
 以下是官方文档中的一个例子，一个心型的矢量图：
@@ -88,7 +88,7 @@ int vibrantColor = palette.getVibrantColor(defaultColor);
 </vector>
 {% endhighlight %}
 
-####属性解释
+####3.1 属性解释
 
 **`<vector>`下的属性**
 
@@ -166,3 +166,7 @@ int vibrantColor = palette.getVibrantColor(defaultColor);
 <img src="http://7o4zgd.com1.z0.glb.clouddn.com/magic%20number.gif"/>
 
 网上查到求解x1和y1的方法（[相关文章](http://blog.csdn.net/cuixiping/article/details/6212047)），过程不是太明白，这里直接引用结果，x1=y1=0.551784。在使用时我们用此数值乘以半径，然后就能计算出各个点的坐标了。
+
+####3.2 矢量动画
+
+未完待续
