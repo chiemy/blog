@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Material Desing风格Drawable的运用"
+title: "Material Design风格Drawable的运用"
 modified: 2015-11-11 14:51:03
 excerpt: "本文介绍了在如何为Drawable着色，矢量图和矢量动画的运用，以及如何运用Palette类从图片中提取颜色"
 tags: [android, material design, Palette, Vector drawable]
