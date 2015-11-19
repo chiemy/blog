@@ -30,7 +30,7 @@ iv.setBackground(drawable);
 
 例如，在xml文件中，我们可以通过`android:drawableTint`属性，对`TextView`的诸如`android:drawableLeft`中的图片进行着色处理，可以通过`android:drawableTintMode`属性来指定着色的模式（默认为`SRC_ATOP`）。对背景图着色，可以用`android:backgroundTint`。
 
-对`ImageView`的图片进行着色，我们使用xml文件中的`android:tint`属性，或者在代码中，我们可以说使用ImageView的`setColorFilter(int color)`方法或者`getDrawable().setTint(color)`方法。
+对`ImageView`的图片进行着色，我们使用xml文件中的`android:tint`属性，或者在代码中，我们可以使用ImageView的`setColorFilter(int color)`方法或者`getDrawable().setTint(color)`方法。
 
 ###从图片中提取颜色
 在Android Support Library r21及之前的版本中，包含一个`Palette`类，通过它我们可以从一张图片中提取出图片的主要颜色，能提取的颜色包括：
@@ -58,7 +58,7 @@ dependencies {
 // generate()需要在子线程中执行，或者我们使用有参数的版本异步提取，参数为`PaletteAsyncListener`，在其回调方法中提取颜色即可。
 Palette palette = Palette.from(bitmapDrawable.getBitmap()).generate();
 // 提取颜色
-palette.getVibrantColor(defaultColor);
+int vibrantColor = palette.getVibrantColor(defaultColor);
 {% endhighlight %}
 
 ###Vector Drawable（矢量图）的使用
@@ -89,9 +89,10 @@ palette.getVibrantColor(defaultColor);
 {% endhighlight %}
 
 ####属性解释
-**<vector>下的属性**
 
-- `android:viewportWidth / Height` 矢量图画布的大小，无单位，<vector>下所有成员的坐标都以此为参照。
+**`<vector>`下的属性**
+
+- `android:viewportWidth / Height` 矢量图画布的大小，无单位，`<vector>`下所有成员的坐标都以此为参照。
 - `android:width / height` 矢量图宽高（最好保持和画布一样的宽高比，否则会变形），会按照与`android:viewportWidth / Height`的比进行拉伸，但并不会失真。
 
 **pathData中用到的SVG Path Data命令解释**
