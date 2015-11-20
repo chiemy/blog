@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Material Design风格Drawable的运用"
+title: "Material Design风格下Drawable的运用"
 modified: 2015-11-11 14:51:03
 excerpt: "本文介绍了在如何为Drawable着色，矢量图和矢量动画的运用，以及如何运用Palette类从图片中提取颜色"
 tags: [android, material design, Palette, Vector drawable]
@@ -193,7 +193,7 @@ int vibrantColor = palette.getVibrantColor(defaultColor);
 
 <img src="http://7o4zgd.com1.z0.glb.clouddn.com/clock.gif" width="300"/>
 
-下面已时钟动画举例，来看看矢量动画的使用。
+下面以时钟动画举例，来看看矢量动画的使用。
 
 **3.3.1 动画文件创建**
 
