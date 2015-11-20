@@ -33,6 +33,9 @@ iv.setBackground(drawable);
 对`ImageView`的图片进行着色，我们使用xml文件中的`android:tint`属性，或者在代码中，我们可以使用ImageView的`setColorFilter(int color)`方法或者`getDrawable().setTint(color)`方法。
 
 ###2.从图片中提取颜色
+
+<img src="http://7o4zgd.com1.z0.glb.clouddn.com/Palette.png" width="300"/>
+
 在Android Support Library r21及之后的版本中，包含一个`Palette`类，通过它我们可以从一张图片中提取出图片的主要颜色，能提取的颜色包括：
 
 - Vibrant
@@ -55,10 +58,17 @@ dependencies {
 将被提取颜色的`Bitmap`传入`Palette`相应方法中
 
 {% highlight java %}
-// generate()需要在子线程中执行，或者我们使用有参数的版本异步提取，参数为`PaletteAsyncListener`，在其回调方法中提取颜色即可。
-Palette palette = Palette.from(bitmapDrawable.getBitmap()).generate();
-// 提取颜色
-int vibrantColor = palette.getVibrantColor(defaultColor);
+// 同步，阻塞线程
+ Palette p = Palette.from(bitmap).generate();
+ // 提取颜色
+ int vibrantColor = palette.getVibrantColor(defaultColor);
+// 异步
+ Palette.from(bitmap).generate(new PaletteAsyncListener() {
+     public void onGenerated(Palette p) {
+     		// 提取颜色
+         int vibrantColor = p.getVibrantColor(defaultColor);
+     }
+ });
 {% endhighlight %}
 
 ###3.Vector Drawable（矢量图）的使用
