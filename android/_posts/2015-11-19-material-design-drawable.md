@@ -33,7 +33,7 @@ iv.setBackground(drawable);
 对`ImageView`的图片进行着色，我们使用xml文件中的`android:tint`属性，或者在代码中，我们可以使用ImageView的`setColorFilter(int color)`方法或者`getDrawable().setTint(color)`方法。
 
 ###2.从图片中提取颜色
-在Android Support Library r21及之前的版本中，包含一个`Palette`类，通过它我们可以从一张图片中提取出图片的主要颜色，能提取的颜色包括：
+在Android Support Library r21及之后的版本中，包含一个`Palette`类，通过它我们可以从一张图片中提取出图片的主要颜色，能提取的颜色包括：
 
 - Vibrant
 - Vibrant dark
