@@ -97,7 +97,10 @@ int vibrantColor = palette.getVibrantColor(defaultColor);
 
 **pathData中用到的SVG Path Data命令解释**
 
-> 表中`+`表示可以有多个参数
+说明：
+
+- 指令列：大写字母代表`绝对位置`，小写字母代表`相对位置`<br>
+- 参数列：`+`表示可以有多个参数
 
 <table summary="" class="" border="1" cellspacing="1">
 <tr><th>指&nbsp;&nbsp;令</th><th>名称</th><th>参数</th><th>描述</th></tr>
@@ -167,6 +170,164 @@ int vibrantColor = palette.getVibrantColor(defaultColor);
 
 网上查到求解x1和y1的方法（[相关文章](http://blog.csdn.net/cuixiping/article/details/6212047)），过程不是太明白，这里直接引用结果，x1=y1=0.551784。在使用时我们用此数值乘以半径，然后就能计算出各个点的坐标了。
 
-####3.2 矢量动画
+####3.2 矢量图创建
+一些简单的矢量图我们可以自己创建，但一些复杂图形我们自己来做就非常麻烦了。Android Studio内置了一些矢量图标可供我们使用，另外我们还可以导入其他的svg文件。
 
-未完待续
+首先，我们在`drawable`文件夹上点击右键，选择`New > Vector Asset`
+
+<img src="http://7o4zgd.com1.z0.glb.clouddn.com/vector_asset.png" width="500">
+
+选中`Material Icon`项，然后点击`Choose`按钮，这里为我们提供了许多图标，我们可以选择一个，然后点击`OK`，之后就会在`drawable`文件夹下生成一个包含`<vector>`节点的`.xml`文件，之后我们就可以引用了。
+
+<img src="http://7o4zgd.com1.z0.glb.clouddn.com/material_icon.png" width="500"/>
+
+
+或者，我们可以导入其他SVG文件，选中`Local SVG File`项，然后选择我们本地的svg文件导入就可以了。由于默认的尺寸是24dp x 24dp，别忘了选中`Override default size from Material Design`，保持图片原有的宽高比，否则图片可能会变形。
+
+<img src="http://7o4zgd.com1.z0.glb.clouddn.com/local_svg_file.png" width="500"/>
+
+貌似这个功能现在还有些bug，如上图，图片的边缘被截掉了一部分。
+
+####3.3 矢量动画
+矢量动画可以实现一些特殊的效果，使用它我们可以对图片中的某一个部分进行动画操作。如下图，我们可以对时钟图片的分针和时钟分别进行动画操作。
+
+<img src="http://7o4zgd.com1.z0.glb.clouddn.com/clock.gif" width="300"/>
+
+下面已时钟动画举例，来看看矢量动画的使用。
+
+**3.3.1 动画文件创建**
+
+首先我们创建一个时钟的矢量图，代码如下。因为我们要单独对时钟和分针进行旋转操作，这里我们为时钟和分针分别套上一层`<group>`，设置名称和锚点。
+
+{% highlight java %}
+<!-- res/drawable/clock.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportHeight="24.0"
+    android:viewportWidth="24.0">
+    <!-- 表盘-->
+    <path
+        android:strokeWidth="2"
+        android:strokeColor="#000000"
+        android:pathData="M11.99,2
+        C6.47,2 2,6.48 2,12
+        s4.47,10 9.99,10
+        C17.52,22 22,17.52 22,12
+        S17.52,2 11.99,2z"
+        />
+    <!-- 时针-->
+    <group
+        android:name="hour"
+        android:pivotX="12"
+        android:pivotY="13"
+        >
+        <path
+            android:strokeLineCap="round"
+            android:strokeColor="#000000"
+            android:strokeWidth="2"
+            android:pathData="M12,8 v5"
+            />
+    </group>
+    <!-- 分针 -->
+    <group
+        android:name="minute"
+        android:rotation="135"
+        android:pivotX="12"
+        android:pivotY="13"
+        >
+        <path
+            android:strokeLineCap="round"
+            android:strokeColor="#000000"
+            android:strokeWidth="2"
+            android:pathData="M12,7 v6"
+            />
+    </group>
+</vector>
+{% endhighlight %}
+
+然后，我们在`drawable`下创建一个以`<animated-vector>`为根节点的xml文件，然后为我们要操作的部分指定相应的动画。
+
+{% highlight java %}
+<!-- res/drawable/clock.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/clock"
+    >
+    <!--为分针指定动画-->
+    <target
+        android:name="minute"
+        android:animation="@anim/minute_rotation"
+        />
+    <!--为时钟指定动画-->
+    <target
+        android:name="hour"
+        android:animation="@anim/hour_rotation"
+        />
+</animated-vector>
+{% endhighlight %}
+
+创建动画文件:
+
+时钟旋转动画文件：
+
+{% highlight java %}
+<!-- res/anim/hour_rotation.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="24000"
+    android:propertyName="rotation"
+    android:valueFrom="0"
+    android:valueTo="360"
+    android:repeatMode="restart"
+    android:repeatCount="infinite"
+    android:interpolator="@android:anim/linear_interpolator"
+    />
+{% endhighlight %}
+
+分针旋转动画文件：
+
+{% highlight java %}
+<!-- res/anim/minute_rotation.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:repeatMode="restart"
+    android:repeatCount="infinite"
+    android:duration="24000"
+    android:propertyName="rotation"
+    android:valueFrom="0"
+    android:valueTo="4320"
+    android:interpolator="@android:anim/linear_interpolator"
+    />
+{% endhighlight %}
+
+**3.3.2 动画的播放**
+
+图中的图片，我们是用`TextView`的`android:drawableLeft`引入的
+
+{% highlight java %}
+<!-- res/anim/minute_rotation.xml -->
+<TextView
+	android:id="@+id/tv_vector_anim1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:drawableLeft="@drawable/animvectordrawable1"
+  	android:layout_below="@+id/tv_vector"
+   	android:text="Click to start vector drawable anim"
+ 	android:gravity="center_vertical"
+  	/>
+{% endhighlight %}
+
+在代码中启动动画：
+
+{% highlight java %}
+TextView vectorAnimIv1 = (TextView) findViewById(R.id.tv_vector_anim1);
+Drawable[] drawables1 = vectorAnimIv1.getCompoundDrawables();
+for (int i = 0 ; i < drawables1.length ; i++){
+	if (drawables1[i] instanceof Animatable){
+		((Animatable)drawables1[i]).start();
+	}
+}
+{% endhighlight %}
