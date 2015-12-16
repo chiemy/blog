@@ -50,5 +50,4 @@ Command的子类可以非常容易的扩展，而调用者Invoker和高层次的
 Github:[Command Pattern](https://github.com/chiemy/JavaDesignPatterns/tree/master/CommandPattern)
 
 参考：
-
 - 《设计模式之禅》
