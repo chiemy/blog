@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "《Clean Code》学习笔记02"
-modified: 2015-12-24 21:28:08
+modified: 2016-01-19 21:28:08
 excerpt: "《Clean Code》读书笔记第2篇"
 tags: [clean code]
 published: false
