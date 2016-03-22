@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[设计模式]责任链模式-Chain of Responsibility
+title: "[设计模式]责任链模式-Chain of Responsibility"
 modified: 2015-12-24 21:28:08
 excerpt: "责任链模式学习笔记"
 tags: [设计模式, design patterns]
