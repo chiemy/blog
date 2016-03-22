@@ -6,3 +6,5 @@ excerpt: "《Clean Code》读书笔记第3篇"
 tags: [clean code]
 published: false
 ---
+
+test
