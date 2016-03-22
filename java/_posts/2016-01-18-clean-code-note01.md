@@ -6,6 +6,7 @@ excerpt: "《Clean Code》读书笔记第一篇"
 tags: [clean code]
 published: false
 ---
+
 #1 整洁代码
 ##糟糕的代码
 如果意识到自己的代码很糟糕，那么马上修改，不要说回头清理，因为**稍后等于用不（Later equals never）**-勒布朗（LeBlanc）法则。
