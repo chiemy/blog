@@ -16,7 +16,7 @@ url:      http://chiemy.com
 # Owner/author information
 owner:
   name:           chiemy
-  avatar:         chiemy.jpg
+  avatar:         logo.png
   email:          host@chiemy.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
   description:    面带笑容不气馁往前冲，我愈挫愈勇！
