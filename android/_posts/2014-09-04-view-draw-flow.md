@@ -33,11 +33,11 @@ comments: true
 
 ![measure流程](http://chiemyblog.qiniudn.com/measure%E6%B5%81%E7%A8%8B.png)
 
-###1.作用
+### 1.作用
 
 为整个View树计算实际的大小，即设置实际的高(对应属性:mMeasuredHeight)和宽(对应属性:mMeasureWidth)，每个View的控件的实际宽高都是由父视图和本身视图决定的
 
-###2.操作
+### 2.操作
 
 在此方法中，调用子视图的`onMeasure()`方法，`onMeasure()`方法中的操作包括：
 
@@ -78,11 +78,11 @@ protected  void measureChildWithMargins(View v, int height , int width){
 
 ![layout流程](http://chiemyblog.qiniudn.com/layout%E6%B5%81%E7%A8%8B.png)
 
-###1.作用
+### 1.作用
 
 为将整个根据子视图的大小以及布局参数将View树放到合适的位置上
 
-###2.操作过程
+### 2.操作过程
 
 view中的该layout函数流程大概如下：
 

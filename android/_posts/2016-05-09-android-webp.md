@@ -4,7 +4,7 @@ title: "WebP在Android中的使用"
 modified: 2016-05-09 22:40:10
 excerpt: "WebP是Google新推出的影像技术，它可以对图片进行压缩，同时又不影响图片格式兼容与实际清晰度"
 tags: [android, webp]
-published: false
+published: true
 ---
 之前翻译过一篇关于如何缩小apk文件大小的文章，里边提到了使用压缩工具对图片进行无损压缩，在实际测试中也确实有效果，但这还不是最好的方式，最近了解到了WebP(早就有了，怪自己孤陋寡闻啊)，一种新的图片格式，比jepg、png更节省空间。
 

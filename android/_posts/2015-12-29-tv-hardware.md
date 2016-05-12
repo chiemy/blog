@@ -7,7 +7,7 @@ tags: [android, andorid tv]
 published: false
 ---
 
-##1 设备检测
+## 1 设备检测
 如果创建了可在Tv和其他设备上能够同时操作的app，我们怎么知道应用运行在什么设备上呢？我们可使用`UiModeManager.getCurrentModeType()`方法，如下：
 
 {% highlight java %}
@@ -20,9 +20,9 @@ if (uiModeManager.getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION)
 }
 {% endhightlight %}
 
-##2 处理不支持的硬件属性
+## 2 处理不支持的硬件属性
 
-###2.1 电视设备不支持的硬件属性
+### 2.1 电视设备不支持的硬件属性
 
 <table>
   <tr>
@@ -68,7 +68,7 @@ if (uiModeManager.getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION)
 更多属性、子属性见[Features Reference](https://developer.android.com/guide/topics/manifest/uses-feature-element.html#features-reference)
 
 
-###2.2 电视设备上的硬件使用
+### 2.2 电视设备上的硬件使用
 如果你的应用使用了一些在电视上不可用的硬件特性，但不用这些特性也可操作，那么需要在manifest文件中声明不需要此特性。即使我们的应用在其他非电视设备上使用了这些特性，我们也需要为电视设备将其声明为不可用，代码如下：
 
 {% highlight java %}
@@ -94,7 +94,7 @@ if (uiModeManager.getCurrentModeType() == Configuration.UI_MODE_TYPE_TELEVISION)
 
 > <font color="#ff0000">注意</font>：如果标记一些电视上不支持的硬件特性为`true`，那么应用将不能安装或不会出现在主界面中。
 
-###2.3 一些依赖硬件属性的权限
+### 2.3 一些依赖硬件属性的权限
 manifest中对一些权限的请求是依赖一些硬件特性的，当我们声明的权限依赖了不支持的硬件特性时，也要注意将相应属性标记为`false`。以下是一些例子，更多对应关系见[uses-feature guide](https://developer.android.com/guide/topics/manifest/uses-feature-element.html#permissions-features)：
 
 <table>

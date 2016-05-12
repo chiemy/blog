@@ -8,11 +8,11 @@ published: true
 ---
 本文示例工程：[MaterialDesignDrawableDemo](https://github.com/chiemy/MaterialDesignDrawableDemo)
 
-###1.为Drawable着色
+### 1.为Drawable着色
 
 <img src="http://7o4zgd.com1.z0.glb.clouddn.com/tint_drawable.png" width="300"><img>
 
-####1.1 Android 5.0之前
+#### 1.1 Android 5.0之前
 在Android 5.0之前，我们可以使用v4支持库里的`DrawableCompat`类进行相关操作，示例如下：
 
 {% highlight java %}
@@ -23,7 +23,7 @@ DrawableCompat.setTintList(drawable, ColorStateList.valueOf(Color.parseColor("#3
 iv.setBackground(drawable);
 {% endhighlight %}
 
-####1.2 Android 5.0之后
+#### 1.2 Android 5.0之后
 在Android 5.0之后，系统为我们提供了相应的Api，实现起来非常简单。
 
 我们通过调用对象的`setTint()`方法对`BitmapDrawable`, `NinePatchDrawable` 或者 `VectorDrawable`进行着色处理，在xml文件中我们也可以通过相应的tint属性直接进行着色处理。
@@ -32,7 +32,7 @@ iv.setBackground(drawable);
 
 对`ImageView`的图片进行着色，我们使用xml文件中的`android:tint`属性，或者在代码中，我们可以使用ImageView的`setColorFilter(int color)`方法或者`getDrawable().setTint(color)`方法。
 
-###2.从图片中提取颜色
+### 2.从图片中提取颜色
 
 <img src="http://7o4zgd.com1.z0.glb.clouddn.com/Palette.png" width="300"/>
 
@@ -45,7 +45,7 @@ iv.setBackground(drawable);
 - Muted dark
 - Muted light
 
-####2.1使用：
+#### 2.1使用：
 添加依赖
 
 {% highlight java %}
@@ -71,7 +71,7 @@ dependencies {
  });
 {% endhighlight %}
 
-###3.Vector Drawable（矢量图）的使用
+### 3.Vector Drawable（矢量图）的使用
 在Android 5.0(API level 21)及以后，我们可以使用矢量图了。矢量图的好处在于，一个图形即可以适配任意分辨率，而又不会造成失真。
 
 以下是官方文档中的一个例子，一个心型的矢量图：
@@ -98,7 +98,7 @@ dependencies {
 </vector>
 {% endhighlight %}
 
-####3.1 属性解释
+#### 3.1 属性解释
 
 **`<vector>`下的属性**
 
@@ -180,7 +180,7 @@ dependencies {
 
 网上查到求解x1和y1的方法（[相关文章](http://blog.csdn.net/cuixiping/article/details/6212047)），过程不是太明白，这里直接引用结果，x1=y1=0.551784。在使用时我们用此数值乘以半径，然后就能计算出各个点的坐标了。
 
-####3.2 矢量图创建
+#### 3.2 矢量图创建
 一些简单的矢量图我们可以自己创建，但一些复杂图形我们自己来做就非常麻烦了。Android Studio内置了一些矢量图标可供我们使用，另外我们还可以导入其他的svg文件。
 
 首先，我们在`drawable`文件夹上点击右键，选择`New > Vector Asset`
@@ -198,7 +198,7 @@ dependencies {
 
 貌似这个功能现在还有些bug，如上图，图片的边缘被截掉了一部分。
 
-####3.3 矢量动画
+#### 3.3 矢量动画
 矢量动画可以实现一些特殊的效果，使用它我们可以对图片中的某一个部分进行动画操作。如下图，我们可以对时钟图片的分针和时钟分别进行动画操作。
 
 <img src="http://7o4zgd.com1.z0.glb.clouddn.com/clock.gif" width="300"/>

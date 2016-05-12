@@ -9,9 +9,9 @@ published: ture
 
 电视屏幕比其他的Android 设备屏幕都要大，一般都是从3米之外的地方观看，这样的屏幕不会像小屏幕一样提供丰富的细节和颜色。这些因素促使我们，在开发电视应用时要创建有用的、有趣的用户体验。
 
-##1 主题的运用
+## 1 主题的运用
 
-###1.1 Leanback主题
+### 1.1 Leanback主题
 `v17 leanback library`支持库提供了标准的电视端Activity的主题，叫`Theme.Leanback`。这个主题为电视应用提供了一致的用户视觉体验。
 
 {% highlight java%}
@@ -21,7 +21,7 @@ published: ture
   android:theme="@style/Theme.Leanback">
 {% endhighlight %}
 
-###1.2 NoTitleBar主题
+### 1.2 NoTitleBar主题
 TitleBar在手机和平板应用上是标准的接口元素，但并不适用于电视应用。如果应用中不使用`v17 leanback library`中的主题，那我们要确保使用不带TitleBar的主题。
 
 {% highlight java%}
@@ -36,7 +36,7 @@ TitleBar在手机和平板应用上是标准的接口元素，但并不适用于
 </application>
 {% endhighlight %}
 
-##2 基础布局的创建
+## 2 基础布局的创建
 为了确保电视应用布局的高效，我们要遵循一些基础原则：
 
 - 创建横向布局，因为电视总是横向显示的。
@@ -45,7 +45,7 @@ TitleBar在手机和平板应用上是标准的接口元素，但并不适用于
 - 使用如`RelativeLayout`或`LinearLayout`的ViewGroup控件来排列视图。
 - 避免界面杂乱，视图间保留足够的间距
 
-##3 OverScan
+## 3 OverScan
 由于电视的演进，及对全屏图像的期望，电视应用布局有着特殊的要求。由于这些原因，为了让画面全屏显示，电视机可能会将应用布局的边缘截取掉，这种现象被成为`OverScan`。
 
 为了保证我们应用界面中的布局元素的可见性，我们需要在布局的左右边缘加上48dp的边距，上下边缘加上27dp的边距。
@@ -82,7 +82,7 @@ TitleBar在手机和平板应用上是标准的接口元素，但并不适用于
 - [Wiki Overscan](https://en.wikipedia.org/wiki/Overscan)
 - [重显率](http://baike.baidu.com/link?url=DVhimQrfZA1VUwO3HRrLqVwWY1x5bCSydTHRP6RPixhGIBQYota2JJJ80Q-zJMH0WaCiCz6kVsn6TbslAd4piK)
 
-##4 创建可用的文字和控制
+## 4 创建可用的文字和控制
 电视应用中的文字及控制项，应该很容易的让用户在远距离看到及导航，下面是一些建议：
 
 - 将文字切割为段落，让用户很容易阅读。
@@ -93,10 +93,10 @@ TitleBar在手机和平板应用上是标准的接口元素，但并不适用于
 
 更多屏幕适配内容见[Supporting Multiple Screens](https://developer.android.com/guide/practices/screens_support.html)
 
-##5 布局资源管理
+## 5 布局资源管理
 普通高清电视的分辨率为720，1080i和1080p。我们应该以1920x1080的屏幕尺寸为基准进行适配。
 
-##6 应避免的布局方式
+## 6 应避免的布局方式
 有以下几种创建布局的方式是我们需要避免的
 
 - 重用手机或平板的布局
