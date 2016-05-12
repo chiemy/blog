@@ -7,7 +7,7 @@ tags: [设计模式, design patterns]
 published: true
 ---
 
-##1.定义
+## 1.定义
 Specify the kinds of objects to create using a prototypical instance,and create new objects by copying this prototype.
 
 用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。
@@ -18,7 +18,7 @@ Java原型模式的核心就是实现Cloneable接口然后覆写clone()方法，
 
 > 注：Cloneable只起到了标示作用，是一个空接口。clone方法是Object的方法。
 
-##2.优点
+## 2.优点
 
 - 性能优良
 
@@ -28,7 +28,7 @@ Java原型模式的核心就是实现Cloneable接口然后覆写clone()方法，
 
 这是它的优点也是缺点，直接在内存中拷贝，是不会执行构造函数的。
 
-##3.使用场景
+## 3.使用场景
 
 - 资源优化场景
 
@@ -42,26 +42,26 @@ new一个对象需要非常繁琐的数据准备或访问权限时。
 
 一个对象需要提供给其他对象访问，而且各个调用者都需要修改其值时，可以考虑用原型模式拷贝多个对象供调用者使用
 
-##4.注意事项
+## 4.注意事项
 
-###4.1 构造函数不会执行
+### 4.1 构造函数不会执行
 一个实现了Cloneable接口并实现clone方法的类A，有一个无参或有参构造B，通过new产生一个对象S，然后通过S.clone()方法产生了一个新的对象T，那么在对象拷贝时B是不会执行的。
 
-###4.2 深拷贝和浅拷贝
+### 4.2 深拷贝和浅拷贝
 
-####4.2.1 浅拷贝
+#### 4.2.1 浅拷贝
 Object类提供的clone方法只是拷贝本对象，其对象内部的数组、引用对象都不拷贝，还是指向原生对象的内部元素地址，而其他原始数据类型以及String类型都会被拷贝。
 
 因此，浅拷贝情况下，原对象和拷贝对象对其内部的数组及引用对象进行修改时，是相互影响的，因为指向的是同一块内存地址。
 
-####4.2.2 深拷贝
+#### 4.2.2 深拷贝
 深拷贝能够使得原对象和拷贝对象对数组和引用对象的修改互不影响，实现方式就是在clone方法中，实现对除基本数据类型和String类型之外数据的拷贝。
 
-###4.3 final的数据不能clone
+### 4.3 final的数据不能clone
 
 一个声明为final的数据不能调用clone方法，否则编译报错。
 
-##5.示例代码
+## 5.示例代码
 
 Github:[Proxy Pattern](https://github.com/chiemy/JavaDesignPatterns/tree/master/PrototypePattern)
 

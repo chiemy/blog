@@ -7,7 +7,7 @@ tags: [设计模式, design patterns]
 published: true
 ---
 
-##1.定义
+## 1.定义
 Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template method Lets subclasses redefine certain steps of an algorithm without changing the algorithm structrue.
 
 在某个操作中定义一个逻辑的框架，将一些步骤延迟到子类里。使得子类在不改变算法结构的情况下可以重新定义该算法的某些步骤。
@@ -31,7 +31,7 @@ AbstractClass叫抽象模板，它的方法分为两类：
 - 钩子方法
 
 
-##2.优缺点
+## 2.优缺点
 
 ###（1）优点
 
@@ -42,13 +42,13 @@ AbstractClass叫抽象模板，它的方法分为两类：
 ###（2）缺点
 需要为每一个基本方法的不同实现提供一个子类，如果父类中可变的基本方法太多，将会导致类的个数增加，系统更加庞大，设计也更加抽象，此时，可结合桥接模式来进行设计。
 
-##3.使用场景
+## 3.使用场景
 
 - 多个子类有公有的方法，并且逻辑基本相同
 - 重要、复杂的算法，可以把核心算法设计为模板方法，周边的相关细节功能则由各个子类实现。
 - 重构时，把相同的代码抽取到父类中，然后通过钩子函数约束其行为。
 
-##4.扩展，钩子方法的运用
+## 4.扩展，钩子方法的运用
 钩子方法的引入使得子类可以控制父类的行为。钩子方法是被模板方法调用的，从而起到影响到模板方法的运行结果。
 
 Example:
@@ -74,7 +74,7 @@ Example:
 	}
 
 
-##5.示例代码
+## 5.示例代码
 
 Github:[TemplateMethodPattern](https://github.com/chiemy/JavaDesignPatterns/tree/master/TemplateMethodPattern)
 
