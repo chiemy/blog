@@ -7,7 +7,7 @@ tags: [设计模式, design patterns]
 published: true
 ---
 
-##1.定义
+## 1.定义
 
 Provide a surrogate or placeholder for another object to control access to it.
 
@@ -30,7 +30,7 @@ Provide a surrogate or placeholder for another object to control access to it.
 委托类或代理类，在被代理类业务逻辑执行前后做预处理和善后工作。
 
 
-##2.优点
+## 2.优点
 
 - 职责清晰
 
@@ -42,22 +42,22 @@ Provide a surrogate or placeholder for another object to control access to it.
 
 - 智能化
 
-##4.扩展
+## 4.扩展
 
-###4.1普通代理
+### 4.1普通代理
 
 调用者只能访问代理角色，而不能访问真实角色，调用者必须知道代理的存在。
 
 [示例代码](https://github.com/chiemy/JavaDesignPatterns/tree/master/ProxyPattern)
 
-###4.2强制代理
+### 4.2强制代理
 
 调用者直接调用真实的角色，而不用关心代理是否存在，其代理的产生是由真实角色决定的。
 
 
 [示例代码](https://github.com/chiemy/JavaDesignPatterns/tree/master/ProxyPattern)
 
-##5.示例代码
+## 5.示例代码
 
 Github:[Proxy Pattern](https://github.com/chiemy/JavaDesignPatterns/tree/master/ProxyPattern)
 
