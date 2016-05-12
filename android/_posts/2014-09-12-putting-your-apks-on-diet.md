@@ -25,7 +25,7 @@ Android最初版本的APK文件只有2MB左右的大小，而现在的应用变�
 
 在看一些非常有用的减少Apk文件大小的方法之前，我们必须了解一下APK文件的构成。简单的说来，Apk文件就是一个保存多个文件的压缩文件。解压之后，可以看到下面的目录结构：
 
-{% highlight html linenos %}
+{% highlight html %}
 /assets
 /lib
   /armeabi
@@ -94,7 +94,7 @@ Andorid开发经常依赖一些外部的库，比如，Android support　Library
 
 从 Android Gradle Plugin 0.7开始，通过`resConfig` 和 `resConfigs`以及默认的配置选项，你可修改构建系统的配置信息。DSL阻止打包工具打包那些不符合app的资源配置。
 
-{% highlight java linenos %}
+{% highlight java %}
 defaultConfig {
  	// ...
  	resConfigs "en", "de", "fr", "it"
@@ -115,7 +115,7 @@ Android通常是Java代码，但有些情况下需要依赖native-code，你可�
 
 如果应用中需要多张图片，它们的内容相同，但角度不同，就不需要保存多张。我们可以通过xml文件来实现对图片的旋转，并达到节省空间的目的。
 
-{% highlight xml linenos %}
+{% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
 <rotate xmlns:android="http://schemas.android.com/apk/res/android"
  	android:drawable="@drawable/ic_arrow_expand"
