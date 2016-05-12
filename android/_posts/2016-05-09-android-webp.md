@@ -18,18 +18,21 @@ WebP（发音weppy）最初在2010年发布，是一种同时提供了有损压�
 
 
 ### WebP工具在Mac Os下的安装
+
 #### 方式一：使用MacPorts安装
+
 1.到此网站[链接](http://distfiles.macports.org/MacPorts/)下载与系统版本对应的MacPorts，安装MacPorts之前需要安装Xcode.
 
 2.按照此文档对MacPorts进行安装，[链接](https://guide.macports.org/#installing.macports)，我选择的是下载.pkg文件进行安装的。
 
-但我在安装的过程中卡住了，这个可能是由于GWF的原因，网上说安装时最好断网。
+但我在安装的过程中卡住了，这个可能是由于GFW的原因，网上说安装时最好断网。
 
 3.安装完成后更新：`sudo port -v selfupdate。`。
 
 4.然后安装libwebp，`sudo port install webp`
 
 #### 方式二：使用Homebrew
+
 1.安装Homebrew，[http://brew.sh/index_zh-cn.html](http://brew.sh/index_zh-cn.html)
 
 2.安装完成后，用如下命令安装libwebp，`brew install webp`
