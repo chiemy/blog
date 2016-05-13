@@ -35,7 +35,9 @@ android {
 > 注：添加以上配置之后，Sync一下，然后项目会自动添加依赖的库。
 
 ## 2 Data Binding布局文件
+
 ### 2.1 Data Binding表达式
+
 Data-binding布局文件稍有些不同，它的根布局标签为`layout`，包含一个`data`元素和`view`根元素，`view`元素就是我们正常使用的布局。举例如下：`activity_main.xml`
 
 ```
@@ -82,6 +84,7 @@ Data-binding布局文件稍有些不同，它的根布局标签为`layout`，包
 
 
 ### 2.2 Data对象
+
 我们创建一个在上边用到的数据对象
 
 ```
@@ -247,7 +250,7 @@ public class StringUtils {
 ### 3.1 Variables
 在`data`元素中可以有任意数量的`variable`元素，布局文件中的binding表达式可能会用到`variable`元素所描述的属性。
 
-```
+```xml
 <data>
     <import type="android.graphics.drawable.Drawable"/>
     <variable name="user"  type="com.example.User"/>
@@ -264,7 +267,7 @@ public class StringUtils {
 
 有个默认的名为context的variable, 类型为Context, 它是通过根布局的getContext()方法得到的，我们可以直接使用
 
-```
+```java
 public class StringUtils {
     public static String packageName(Context context){
         return context.getPackageName();
@@ -273,7 +276,7 @@ public class StringUtils {
 ```
 
 
-```
+```xml
 <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -286,7 +289,7 @@ public class StringUtils {
 
 通过`data`元素的`class`属性，Binding类可以被重命名或者指定所在的包，例如：
 
-```
+```xml
 <data class="ContactItem">
     ...
 </data>
@@ -296,7 +299,7 @@ public class StringUtils {
 
 如果我们想指定它直接在module包下，我们可以在前面加个`.`
 
-```
+```xml
 <data class=".ContactItem">
     ...
 </data>
@@ -313,7 +316,7 @@ public class StringUtils {
 ### 3.3 Includes
 Variable也可以传递到一个include的布局里：
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:bind="http://schemas.android.com/apk/res-auto">
@@ -336,7 +339,7 @@ Variable也可以传递到一个include的布局里：
 
 Data binding不支持include一个以merge元素作为直接孩子的布局，例如，下面的方式是不支持的：
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:bind="http://schemas.android.com/apk/res-auto">
@@ -369,12 +372,12 @@ Data binding不支持include一个以merge元素作为直接孩子的布局，�
 - 转型
 - 方法调用
 - 属性访问
-- 数组访问 `[]`
+- 数组访问 `[ ]`
 - 三目运算符
 
 举例：
 
-```
+```xml
 android:text="@{String.valueOf(index + 1)}"
 android:visibility="@{age > 13 ? View.GONE : View.VISIBLE}"
 android:transitionName='@{"image_" + id}'
@@ -390,7 +393,7 @@ android:transitionName='@{"image_" + id}'
 #### Null合并操作
 选择不为空的值
 
-```
+```xml
 android:text="@{user.displayName ?? user.lastName}"
 ```
 
@@ -400,6 +403,30 @@ android:text="@{user.displayName ?? user.lastName}"
 android:text="@{user.displayName != null ? user.displayName : user.lastName}"
 ```
 
-#### 避免空指针
+#### 空指针安全
 
+生成的data binding代码自动检验null值，并避免空指针的发生。例如在`@{user.name}`表达式中，如果user是null的，user.name将会取默认值null，如果你引用user.age，age是int型，那么值将会是0。
+
+#### 集合
+
+通用的容器：数组、List、SparseArray、Map，可以通过`[ ]`方便的访问。
+
+```xml
+<data>
+    <import type="android.util.SparseArray"/>
+    <import type="java.util.Map"/>
+    <import type="java.util.List"/>
+    <variable name="list" type="List&lt;String>"/>
+    <variable name="sparse" type="SparseArray&lt;String>"/>
+    <variable name="map" type="Map&lt;String, String>"/>
+    <variable name="index" type="int"/>
+    <variable name="key" type="String"/>
+</data>
+…
+android:text="@{list[index]}"
+…
+android:text="@{sparse[index]}"
+…
+android:text="@{map[key]}"
+```
 
