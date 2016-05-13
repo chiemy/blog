@@ -40,7 +40,7 @@ android {
 
 Data-binding布局文件稍有些不同，它的根布局标签为`layout`，包含一个`data`元素和`view`根元素，`view`元素就是我们正常使用的布局。举例如下：`activity_main.xml`
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
    <data>
@@ -68,7 +68,7 @@ Data-binding布局文件稍有些不同，它的根布局标签为`layout`，包
 
 在layout中的表达式，用`@{}`语句被写在相应的属性中。这里的TextView的text展示就是user的fristName属性值。
 
-```
+```xml
 <TextView android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@{user.firstName}"/>          
@@ -76,7 +76,7 @@ Data-binding布局文件稍有些不同，它的根布局标签为`layout`，包
 
 还可以做链式操作，`user.firstName`得到的`String`，我们可以继续调用`String`的相应方法
 
-```
+```xml
 <TextView android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@{user.firstName.toUpperCase()}"/>          
@@ -87,7 +87,7 @@ Data-binding布局文件稍有些不同，它的根布局标签为`layout`，包
 
 我们创建一个在上边用到的数据对象
 
-```
+```java
 public class User {
     private String firstName;
     private String lastName;
@@ -115,7 +115,7 @@ public class User {
 ### 2.3 数据绑定
 默认情况下，Android Studio会自动根据以`layout`作为根布局的文件名称生产一个Binding类，比如上面的布局文件`activity_main`，生产的Binding类名称为`ActivityMainBinding`，然后在MainActivity里进行数据绑定：
 
-```
+```java
 Override
 protected void onCreate(Bundle savedInstanceState) {
    super.onCreate(savedInstanceState);
@@ -130,7 +130,7 @@ MainActivityBinding下的方法，都是根据布局文件中的`variable`标签
 运行程序后，你就会在界面上看到文字Test User。或者，你可以通过以下方式获取：
 
 
-```
+```java
 MainActivityBinding binding = MainActivityBinding.inflate(getLayoutInflater());
 ```
 
@@ -138,7 +138,7 @@ MainActivityBinding binding = MainActivityBinding.inflate(getLayoutInflater());
 
 还有下面这种方式：
 
-```
+```java
 View root = getLayoutInflater().inflate(R.layout.activity_main, null);
 setContentView(root);
 ActivityMainBinding binding = ActivityMainBinding.bind(root);
@@ -149,7 +149,7 @@ ActivityMainBinding binding = ActivityMainBinding.bind(root);
 
 以点击事件为例，声明一个variable，名称为`onClicklistener`，以`MainActivity`作为处理类
 
-```
+```xml
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
@@ -182,7 +182,7 @@ type="com.chiemy.example.databindingexample.MainActivity"/>
 
 MainActivity下要实现布局文件表达式中用到的方法，接收参数为View：
 
-```
+```java
 public void onClick(View view){
 	//TODO 处理点击事件
 }
@@ -193,7 +193,7 @@ public void onClick(View view){
 
 例如：
 
-```
+```xml
 <data>
     <import type="android.view.View"/>
 </data>
@@ -201,7 +201,7 @@ public void onClick(View view){
 
 现在我们就可以在binding表达式里使用View了
 
-```
+```xml
 <TextView
    android:text="@{user.lastName}"
    android:layout_width="wrap_content"
@@ -213,7 +213,7 @@ public void onClick(View view){
 
 当类名有冲突的时候，我们可以使用`alias:`属性为类起个别名，比如有个类`com.example.real.estate.View`
 
-```
+```xml
 <import type="android.view.View"/>
 <import type="com.example.real.estate.View"
         alias="Vista"/>
@@ -227,7 +227,7 @@ public void onClick(View view){
 
 import的类型同时支持静态变量和方法的表达式：
 
-```
+```java
 public class StringUtils {
     public static String capitalize(String text){
         return text.toUpperCase();
