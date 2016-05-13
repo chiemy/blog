@@ -27,7 +27,7 @@ android {
     }
 }
 ```
-
+<br>
 如果你使用的支持库也使用了data binding，也需要在其`build。gradle`文件下进行同样的配置。
 
 同时，要确保你使用的Android Studio是`1.3及以上的版本`。
