@@ -717,7 +717,7 @@ ViewDataBinding binding = DataBindingUtil.bindTo(viewRoot, layoutId);
 
 ### 5.2 Views With IDs - 带ID的视图
 
-每个带有Id的视图，都会在binding类里生成一个对应的public final的字段，Binding做一次在View层级上做一次遍历，取出所有带ID的视图，这种机制要比`findViewById`要快，例如对于如下布局：
+每个带有Id的视图，都会在binding类里生成一个对应的public final的字段，Binding在View层级上做一次遍历，取出所有带ID的视图，这种机制要比`findViewById`快，例如对于如下布局：
 
 ```xml
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
@@ -751,7 +751,7 @@ public final TextView lastName;
 
 ### 5.3 Variables - 变量
 
-每个variable遍历都会在Binding类里生成get和set方法，例如
+每个variable变量都会在Binding类里生成get和set方法，例如
 
 ```xml
 <data>
@@ -786,10 +786,10 @@ ViewStub和其他View类略有不同，它开始不可见，且当它可见或�
 ViewStubActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_view_stub);
 // 这样报转型错误？
 // final ViewStubProxy viewStubProxy = new ViewStubProxy(binding.viewStub);
-// 这样明显不对，但竟然能运行起来，也是正常的
+// 这样明显不对，但竟然能运行起来，结果也是正确的
 // final ViewStubProxy viewStubProxy = binding.viewStub;
 // 暂时采用这种方式
-// final ViewStubProxy viewStubProxy = new ViewStubProxy((ViewStub)findViewById(R.id.viewStub));
+final ViewStubProxy viewStubProxy = new ViewStubProxy((ViewStub)findViewById(R.id.viewStub));
 viewStubProxy.setOnInflateListener(new ViewStub.OnInflateListener() {
 	@Override
 	public void onInflate(ViewStub stub, View inflated) {
