@@ -7,6 +7,7 @@ tags: [android, databinding]
 published: true
 ---
 
+
 ####说明：本文是按照Android官方文档顺序进行部分翻译，并结合自身实践进行总结的，不保证100%还原官方内容，建议还是先看下官方的[说明文档](http://developer.android.com/intl/zh-cn/tools/data-binding/guide.html)
 
 这篇文章将教你如何使用Data Binding Library来书写声明式的(declarative)布局，以及使用尽可能少的代码来使应用逻辑与布局绑定。
@@ -89,7 +90,7 @@ Data-binding布局文件稍有些不同，它的根布局标签为`layout`，包
 
 <br/>
 
-**<font color=#ff0000>遇到的坑</font>**
+<font color=#ff0000>**遇到的坑**</font>
 
 注意视图的属性对不同参数类型的处理有没有区别，比如`android:text`，在Databinding内部应该是调用了TextView的`setText()`方法，如果`@{}`表达式内是数字的话，例如`@{user.age}`，会报资源找不到的错误（`android.content.res.Resources$NotFoundException`），因此我们的表达式应该是`@{String.valueOf(user.age)}`
 
@@ -213,7 +214,7 @@ public void onClick(View view){
 
 <br>
 
-**<font color=#ff0000>遇到的坑：</font>**
+<font color=#ff0000>**遇到的坑：**</font>
 
 使用Android Studio 2.1.1编译测试，本来开始用起来没有任何问题，但当我新建了一个Activity，再使用这种方式进行事件绑定时，问题出现了。在新的Activity的布局文件中也采用如上方式，点击按钮时应用直接崩溃了，提示我Activity里没有声明相应的方法（`java.lang.IllegalStateException: Could not find a method onClick(View) ......`），似乎对`android:onClick`表达式的识别出了问题，但在Android Studio 1.5.1上测试编译没有问题。如果你也遇到了同样的问题并找到了解决办法，请指点。
 
@@ -578,7 +579,7 @@ int age = user.age.get();
 
 <br/>
 
-**<font color=#ff0000>遇到的坑：</font>**
+<font color=#ff0000>**遇到的坑：**</font>
 
 本想将`ObservableField`及相关的属性设置为私有的，然后简化getter方法，像下边这样：
 
