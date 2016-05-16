@@ -90,7 +90,7 @@ Data-binding布局文件稍有些不同，它的根布局标签为`layout`，包
 
 <br/>
 
-<font color=#ff0000>**遇到的坑**</font>
+<font color=red>**遇到的坑**</font>
 
 注意视图的属性对不同参数类型的处理有没有区别，比如`android:text`，在Databinding内部应该是调用了TextView的`setText()`方法，如果`@{}`表达式内是数字的话，例如`@{user.age}`，会报资源找不到的错误（`android.content.res.Resources$NotFoundException`），因此我们的表达式应该是`@{String.valueOf(user.age)}`
 
