@@ -90,7 +90,7 @@ Data-binding布局文件稍有些不同，它的根布局标签为`layout`，包
 
 <br/>
 
-<font color=red>**遇到的坑**</font>
+<font color="#ff0000">**遇到的坑**</font>
 
 注意视图的属性对不同参数类型的处理有没有区别，比如`android:text`，在Databinding内部应该是调用了TextView的`setText()`方法，如果`@{}`表达式内是数字的话，例如`@{user.age}`，会报资源找不到的错误（`android.content.res.Resources$NotFoundException`），因此我们的表达式应该是`@{String.valueOf(user.age)}`
 
@@ -159,6 +159,8 @@ View view = binding.getRoot();
 setContentView(view);
 ```
 
+<br>
+
 还有下面这种方式：
 
 ```java
@@ -166,6 +168,8 @@ View root = getLayoutInflater().inflate(R.layout.activity_main, null);
 setContentView(root);
 ActivityMainBinding binding = ActivityMainBinding.bind(root);
 ```
+
+<br>
 
 ### 2.4 Binding Events - 事件绑定
 理解了上边的数据绑定，事件绑定久好理解了，跟数据绑定类似。
@@ -283,6 +287,7 @@ public class StringUtils {
 ```
 
 <br/>
+
 ### 3.1 Variables
 在`data`元素中可以有任意数量的`variable`元素，布局文件中的binding表达式可能会用到`variable`元素所描述的属性。
 
@@ -296,6 +301,7 @@ public class StringUtils {
 ```
 
 <br/>
+
 `variable`类型会在编译的时候被检查，如果它实现了`Observable`接口或者是一个`observabel collection`，应该反映到类型中。如果它是一个没有实现Observabled的基本的类或接口，它就不会被观察。
 
 当对于不同配置（如，横竖布局）有不同的布局文件时，variables将会被合并，因此不同的布局直接不能存在冲突的variable定义。
@@ -321,6 +327,8 @@ public class StringUtils {
             android:text="@{StringUtils.packageName(context)}"
             />
 ```
+
+<br>
 
 ### 3.2 Custom Binding Class Names - 自定义Binding类的名称
 默认情况下，Binding类的名称是根据类名生成的，去除布局名称中的“_”，以驼峰命名的形式，并以Binding结尾。这个类将被放置在module包下的databinding包下。例如，`contact_item.xml`将会生成`ContactItemBinding`，如果module的包为`com.example.my.app`，那么类所处的包为`com.example.my.app.databinding.`（但你是看不到的）。
@@ -396,6 +404,7 @@ Data binding不支持include一个以merge元素作为直接孩子的布局，�
 ```
 
 <br/>
+
 ### 3.4 Expression Language - 表达式语言
 #### Common Features - 通用属性
 许多和Java表达式相同：
@@ -425,6 +434,7 @@ android:transitionName='@{"image_" + id}'
 ```
 
 <br/>
+
 #### Missing Operations - 没有的操作
 
 - this
@@ -440,11 +450,14 @@ android:text="@{user.displayName ?? user.lastName}"
 ```
 
 <br/>
+
 与以下三目运算等价
 
 ```
 android:text="@{user.displayName != null ? user.displayName : user.lastName}"
 ```
+
+<br>
 
 #### Avoiding NullPointerException - 空指针安全
 
@@ -473,7 +486,8 @@ android:text="@{sparse[index]}"
 android:text="@{map[key]}"
 ```
 
-<br/>
+<br>
+
 #### String Literals - String迭代
 当属性值用单引号包裹时，表达式内部用双引号。
 
@@ -482,6 +496,7 @@ android:text='@{map["firstName"]}'
 ```
 
 <br>
+
 也可以属性值用双引号包裹，表达式内使用`&quot;`或者反单引号(`)
 
 ```xml
@@ -490,6 +505,7 @@ android:text="@{map[&quot;firstName&quot;]}"
 ```
 
 <br>
+
 #### Resources - 资源
 也可以在表达式中使用正常的语法访问资源：
 
@@ -498,6 +514,7 @@ android:padding="@{large? @dimen/largePadding : @dimen/smallPadding}"
 ```
 
 <br>
+
 格式化的和复数的String，可以根据提供的参数进行匹配。
 
 ```xml
@@ -506,6 +523,7 @@ android:text="@{@plurals/banana(bananaCount)}"
 ```
 
 <br>
+
 正常引用和表达式的对应关心如下：
 
 |类型　　　　         |正常引用　　　|表达式引用   |
@@ -659,6 +677,7 @@ user.add(17);
    android:layout_height="wrap_content"/>
 ```
 
+<br>
 
 ## 5 Generated Binding - Binding的生成
 
@@ -753,6 +772,8 @@ public abstract void setImage(Drawable image);
 public abstract String getNote();
 public abstract void setNote(String note);
 ```
+
+<br>
 
 ### 5.4 ViewStubs
 
