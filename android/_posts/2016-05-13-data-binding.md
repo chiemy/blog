@@ -9,7 +9,7 @@ published: true
 
 <br>
 
-####说明：本文是按照Android官方文档顺序进行部分翻译，并结合自身实践进行总结的，不保证100%还原官方内容，建议还是先看下官方的[说明文档](http://developer.android.com/intl/zh-cn/tools/data-binding/guide.html)
+**说明：本文是按照Android官方文档顺序进行部分翻译，并结合自身实践进行总结的，不保证100%还原官方内容，建议还是先看下官方的[说明文档](http://developer.android.com/intl/zh-cn/tools/data-binding/guide.html)**
 
 这篇文章将教你如何使用Data Binding Library来书写声明式的(declarative)布局，以及使用尽可能少的代码来使应用逻辑与布局绑定。
 
@@ -132,20 +132,20 @@ public class User {
 Override
 protected void onCreate(Bundle savedInstanceState) {
    super.onCreate(savedInstanceState);
-   MainActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
+   ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
    User user = new User("Test", "User");
    binding.setUser(user);
 }
 ```
 
 <br/>
-MainActivityBinding下的方法，都是根据布局文件中的`variable`标签的`name`属性自动生成的，因为我们的布局文件里有个name为user的方法，那么就生成了`setUser`方法，参数是`variable`type对应的类。
+ActivityMainBinding下的方法，都是根据布局文件中的`variable`标签的`name`属性自动生成的，因为我们的布局文件里有个name为user的variable，那么就生成了`setUser`方法，参数是`variable`type对应的类。
 
 运行程序后，你就会在界面上看到文字Test User。或者，你可以通过以下方式获取：
 
 
 ```java
-MainActivityBinding binding = MainActivityBinding.inflate(getLayoutInflater());
+ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
 ```
 
 <br/>
@@ -155,7 +155,7 @@ MainActivityBinding binding = MainActivityBinding.inflate(getLayoutInflater());
 完整的代码应该是这样的：
 
 ```java
-MainActivityBinding binding = MainActivityBinding.inflate(getLayoutInflater());
+ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
 View view = binding.getRoot();
 setContentView(view);
 ```
@@ -173,7 +173,7 @@ ActivityMainBinding binding = ActivityMainBinding.bind(root);
 <br>
 
 ### 2.4 Binding Events - 事件绑定
-理解了上边的数据绑定，事件绑定久好理解了，跟数据绑定类似。
+理解了上边的数据绑定，事件绑定就好理解了，跟数据绑定类似。
 
 以点击事件为例，声明一个variable，名称为`onClicklistener`，以`MainActivity`作为处理类
 
@@ -305,7 +305,7 @@ public class StringUtils {
 
 `variable`类型会在编译的时候被检查，如果它实现了`Observable`接口或者是一个`observabel collection`，应该反映到类型中。如果它是一个没有实现Observabled的基本的类或接口，它就不会被观察。
 
-当对于不同配置（如，横竖布局）有不同的布局文件时，variables将会被合并，因此不同的布局直接不能存在冲突的variable定义。
+当对于不同配置（如，横竖布局）有不同的布局文件时，variables将会被合并，因此不同的布局之间不能存在冲突的variable定义。
 
 生成的binding类，会为每个variable提供一个getter和setter方法，直到调用setter方法时，variable才会被设置Java的默认值，引用类型为null，int类型为0，boolean类型为false，等等。
 
@@ -407,6 +407,7 @@ Data binding不支持include一个以merge元素作为直接孩子的布局，�
 <br/>
 
 ### 3.4 Expression Language - 表达式语言
+
 #### Common Features - 通用属性
 许多和Java表达式相同：
 
@@ -525,27 +526,27 @@ android:text="@{@plurals/banana(bananaCount)}"
 
 <br>
 
-正常引用和表达式的对应关心如下：
+正常引用和表达式的对应关系如下：
 
 |类型　　　　         |正常引用　　　|表达式引用   |
 |:------------------|:----------|:-----------|
 |String[]           |@array     |@stringArray|
 |int[]              |@array     |@intArray|
 |TypedArray         |@array     |@typedArray|
-|Animator           |@@animator |@animator|
+|Animator           |@animator |@animator|
 |StateListAnimator	|@animator  |@stateListAnimator|
 |color int          |@color     |@color|
 |ColorStateList     |@color     |@colorStateList|
 
 
 ## 4 Data Objects - 数据对象
-POJO可以用于data dinding，但是修改POJO并不会引起UI的更新。data binding真正的力量在于赋予你的数据对象当数据变化时去更新UI的能力。有三种不同的数据通知更新的机制，Observable objects, observable fileds，以及observable collections。
+POJO可以用于data dinding，但是修改POJO并不会引起UI的更新。data binding的强大之处在于赋予你的数据对象当数据变化时去更新UI的能力。有三种不同的数据通知更新的机制，Observable objects, observable fileds，以及observable collections。
 
 
 ### 4.1 Observable Objects
 实现Observable接口的类，允许监听器属性的变化。
 
-`Observable`接口有添加和移除监听的能力，但是通知则依赖于开发者。为了使开发简单，`BaseObservable`类，已经实现了监听注册的机制。实现类还是得在属性变化的是否负责提醒。通过在getter方法上的`Bindable`注解实现监听，在setter方法中完成通知。
+`Observable`接口有添加和移除监听的能力，但是通知则依赖于开发者。为了使开发简单，`BaseObservable`类，已经实现了监听注册的机制。实现类还是得在属性变化的时候负责提醒。通过在getter方法上的`Bindable`注解实现监听，在setter方法中完成通知。
 
 ```java
 private static class User extends BaseObservable {
@@ -575,7 +576,7 @@ private static class User extends BaseObservable {
 
 ### 4.2 ObservableFields
 
-像上边的方式，我们有一部分工作花在了创建`Observable`类上，如果我们想节省时间，或者我们只有很少的属性，我们可以使用`ObservableField`，以及它的弟兄们- `ObservableBoolean`, `ObservableByte`, `ObservableChar`, `ObservableShort`, `ObservableInt`, `ObservableLong`, `ObservableFloat`, `ObservableDouble`, `ObservableParcelable`。`ObservableField`自己保存一个只有属性的observable对象，早期的版本在访问时避免自动装箱和拆箱。使用方式如下：
+像上边的方式，我们有一部分工作花在了创建`Observable`类上，如果我们想节省时间，或者我们只有很少的属性，我们可以使用`ObservableField`，以及它的弟兄们- `ObservableBoolean`, `ObservableByte`, `ObservableChar`, `ObservableShort`, `ObservableInt`, `ObservableLong`, `ObservableFloat`, `ObservableDouble`, `ObservableParcelable`。`ObservableField`自己保存只有一个属性的observable对象，早期的版本在访问时会避免自动装箱和拆箱。使用方式如下：
 
 ```java
 private static class User {
@@ -615,6 +616,8 @@ public class ObservableFiledsUser {
     }
 }
 ```
+
+<br>
 
 但是这样做不会引起视图的自动更新，所以如果想将属性设置为私有的，那么getter方法一定要返回相应的类型，即：
 
