@@ -1,12 +1,13 @@
 ---
 layout: post
-title: "压缩代码和资源"
+title: "[译]压缩代码和资源"
 modified: 2016-05-24 23:11:23
 excerpt: "使用 Android Gradle 插件进行代码优化、混淆、压缩，及资源压缩"
 tags: [android, gradle, ProGuard]
 published: true
 ---
 
+翻译自官方文档[Shrink Your Code and Resources](https://developer.android.com/studio/build/shrink-code.html)
 
 为了让我们的 APK 文件尽可能的小，我们可以压缩代码和资源。这篇文章将描述如何做到代码和资源的压缩，以及如何指定在构建过程中哪些内容应该保留，哪些内容应该丢弃。
 
@@ -19,7 +20,7 @@ Android 的 Gradle 插件支持对资源的压缩，它会从打包的 app 中�
 - SDK Tools 25.0.10或更高
 - Android Gradle 插件2.0.0或更高
 
-##代码压缩
+## 代码压缩
 
 使用 `ProGuard` 进行代码压缩，首先在 `build.gradle` 文件中相关的 `build type` 下添加 `minifyEnabled true` 
 
@@ -48,11 +49,11 @@ android {
 
 - `getDefaultProguardFile(‘proguard-android.txt')` 方法，从 `Android SDK tools/proguard/` 文件夹下获取默认的 ProGuard 设置。
 
-> Tips：为了更多的进行代码压缩，试下相同目录下的 `proguard-android-optimize.txt` 文件。它包含的了相同的 ProGuard 规则，但是它是从字节码层面进行优化的，这可以减少 APK 文件的大小，并且运行的更快。
+> Tips：为了更多的进行代码压缩，试下相同目录下的 `proguard-android-optimize.txt` 文件。它包含的了相同的 ProGuard 规则，但是它是从字节码层面进行优化的，这可以减少 APK 文件的大小，并且使 App 运行的更快。
 
 - `proguard-rules.pro` 是你可以自定义 ProGuard 规则的文件，默认情况它处于模块根目录下。
 
-为每个构建变种（build variant）添加特定的混淆规则，需要在相应的 `productFlavor` 下添加 `proguardFiles` 属性。例如，下面的 Gradle 文件中为 `flavor2` 添加了 `flavor2-rules.pro` ，现在 `flavor2` 可以使用所有的 ProGuard 规则，因为 `release` 代码块中的规则也同事被使用了：
+为每个构建变种（build variant）添加特定的混淆规则，需要在相应的 `productFlavor` 下添加 `proguardFiles` 属性。例如，下面的 Gradle 文件中为 `flavor2` 添加了 `flavor2-rules.pro` ，现在 `flavor2` 可以使用所有的 ProGuard 规则，因为 `release` 代码块中的规则也同时被使用了：
 
 ```java
 android {
@@ -103,7 +104,7 @@ android {
 - 当你的 app 从 JNI 调用方法的时候。
 - 当你的 app 在运行时动态的操作代码的时候（比如反射）
 
-当不正确的移除代码，在测试时会引发一些错误，但是我们也可以浏览下 `usage.txt` 文件检查下那些代码被移除了。
+当不适当的移除代码时，在测试时会引发一些错误，但我们也可以浏览下 `usage.txt` 文件检查下是否有些不需要移除的代码也被移除了。
 
 为修正错误，并且强制 ProGuard 保留特定的代码，需要在 ProGuard 配置文件中加入一行 `-keep` ，例如：
 
@@ -113,7 +114,7 @@ android {
 
 <br>
 
-或者，我们可以为我们希望保留的代码夹 `@Keep` 注解。在类上添加 `@Keep` 注解将会保留整个类。在方法或属性上添加此注解，将会完整的保留方法和属性（包括名称）以及类名。注意，使用此注解需要引入 `Annotations Support Library`。
+或者，我们可以为我们希望保留的代码加 `@Keep` 注解。在类上添加 `@Keep` 注解将会保留整个类。在方法或属性上添加此注解，将会完整的保留方法和属性（包括名称）以及类名。注意，使用此注解需要引入 `Annotations Support Library`。
 
 当使用 `-keep` 选项时，我们要考虑很多。更多关于定制配置文件的内容，见[ProGuard Manual. ](https://stuff.mit.edu/afs/sipb/project/android/sdk/android-sdk-linux/tools/proguard/docs/index.html#manual/introduction.html)，在[常见问题板块](https://stuff.mit.edu/afs/sipb/project/android/sdk/android-sdk-linux/tools/proguard/docs/index.html#manual/troubleshooting.html)，列出了你可能会遇到的问题。
 
@@ -123,7 +124,7 @@ android {
 
 需要注意到的是，当你每使用 ProGuard 构建一个发布版的时候，`mapping.txt` 会被覆盖掉，因此，在每次你发布一个新的版本时，一定要留有一份拷贝。这样当用户给你反馈一个混淆后的错误信息时，根据 `mapping.txt` 的内容你可以定位该问题，并进行调试。
 
-当在 Google Play 上发布你的 app 时，`mapping.txt` 文件也需要随版本一同上传。然后，Google Play 会对用户反馈的问题的堆栈跟踪信息进行反混淆，这样你就能 `Google Play Developer Console` 上看到这些问题。更多信息，见帮助中心关于 「[如何反混淆堆栈信息](https://support.google.com/googleplay/android-developer/answer/6295281)」的文章。
+当在 Google Play 上发布你的 app 时，`mapping.txt` 文件也需要随版本一同上传。然后，Google Play 会对用户反馈的问题的堆栈跟踪信息进行反混淆，这样你就能在 `Google Play Developer Console` 上看到这些问题。更多信息，见帮助中心关于 「[如何反混淆堆栈信息](https://support.google.com/googleplay/android-developer/answer/6295281)」的文章。
 
 使用 `retrace` 脚本（Mac/Linux 上使用 `retrace.sh`，Windows 上使用 `retrace.bat`），我们可以自己将混淆后的堆栈跟踪信息还原成可读的信息。脚本位于 `<sdk-root>/tools/proguard/` 目录下。脚本接收 `mapping.txt` 文件和堆栈跟踪信息，会生成一个可读的堆栈跟踪信息，使用方法：
 
@@ -172,7 +173,7 @@ android {
 
 ### 定制哪些资源需要保留
 
-如果有特定的资源你希望保留或删除，那么，创建一个有 <resources> 标签的 XML 文件，然后，通过 `tools:keep` 属性保留指定资源，通过 `tools:discard` 移除指定的资源，两个属性都可以就收以逗号`,`作为分隔的资源列表。你可以用星号`*`作为通配符。
+如果有特定的资源你希望保留或删除，那么，创建一个有 `<resources>` 标签的 XML 文件，然后，通过 `tools:keep` 属性保留指定资源，通过 `tools:discard` 移除指定的资源，两个属性都可以接收以逗号`,`作为分隔的资源列表。你可以用星号`*`作为通配符。
 
 例如：
 
@@ -191,9 +192,9 @@ android {
 
 ### 严格的引用检查
 
-正常情况下，资源压缩工具能够准确的知道某个资源是否被使用。然而，当你在代码里使用 `Resources.getIdentifier()` 方法时，那意味着你的代码是基于静态的字符串来寻找资源的。当你这么做的时候，资源压缩工具，默认的会将所有匹配的资源当做可能会被用到的资源，并不可移除。
+正常情况下，资源压缩工具能够准确的知道某个资源是否被使用。然而，当你在代码里使用 `Resources.getIdentifier()` 方法时，那意味着你的代码是基于静态的字符串来寻找资源的。当你这么做的时候，资源压缩工具，默认的会将所有匹配的资源当做可能会被用到的资源，并不被移除。
 
-例如，下面的代码将会引起所有以 `img_` 作为前缀的资源标记为被用的：
+例如，下面的代码将会引起所有以 `img_` 作为前缀的资源标记为被已引用：
 
 ```
 String name = String.format("img_%1d", angle + 1);
@@ -218,9 +219,9 @@ res = getResources().getIdentifier(name, "drawable", getPackageName());
 
 ### 移除无用的可替换资源
 
-Gradle 资源压缩工具只会移除没有被代码引用的资源，这意味着它不会移除为不同设备配置准备的可替换资源。如果必要的话，可以使用 Android Gradle 插件的 `resConfigs`属性来移除 app 不需要的可选资源文件。
+Gradle 资源压缩工具只会移除没有被代码引用的资源，这意味着它不会移除为不同设备配置准备的可替换资源([alternative resources](https://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources))。如果必要的话，可以使用 Android Gradle 插件的 `resConfigs`属性来移除 app 不需要的可替换资源文件。
 
-例如，如果你的应用使用了一个包含语言资源的库（如AppCompat、Google Play Services），那么你的 APK 文件将会包含所有翻译后的语言字符，如果你只想保留你的 app 所正式支持的语言，可以使用 `resConfig` 属性来指定这些语言。任何未指定的语言资源将会被删除。
+例如，如果你的应用使用了一个包含语言资源的库（如AppCompat、Google Play Services，库中有许多针对不同语言的字符资源），那么你的 APK 文件将会包含所有库中包含的语言资源，如果你只想保留你的 app 正式支持的语言，可以使用 `resConfig` 属性来指定这些语言，任何未指定的语言资源将会被删除。
 
 例如，下面的代码展示了如何限定只保留英语和法语的语言资源
 
@@ -239,9 +240,9 @@ android {
 
 ### 合并重复的资源
 
-默认情况下，Gradle 会合并名称相同的资源，例如，位于不同文件夹下名称相同的图片。此行为不受 `shrinkResources` 属性控制，并且不能关闭，因为，这会避免有多个名称相同资源和你代码寻找的资源相匹配的错误。
+默认情况下，Gradle 会合并名称相同的资源，例如，位于不同文件夹下名称相同的图片。此行为不受 `shrinkResources` 属性控制，并且不能关闭，因为，这会避免你代码寻找的资源有多个匹配结果的错误。
 
-资源合并只会发生在资源具有相同的名称、类型和修饰符。Gradle 会从中选择最合适的资源（按照下文的优先顺序），然后只将这一个资源传给 AAPT 
+资源合并只会发生在资源具有相同的名称、类型和修饰符的时候。Gradle 会从中选择最合适的资源（按照下文的优先顺序），然后只将这一个资源传给 AAPT 
 
 Gradle 将会在以下位置寻找重复资源：
 
@@ -270,7 +271,7 @@ Removed unused resources: Binary resource data reduced from 2570KB to 1711KB: Re
 <br>
 
 Gradle 也会生成一个名为 `resources.txt` 的诊断文件，位于 `<module-name>/build/outputs/mapping/release/`
-文件夹下，这个文件包含了相信的信息，例如，哪些资源引用了其他资源，哪些资源被使用，哪些被移除。
+文件夹下，这个文件包含了更加详细的信息，例如，哪些资源引用了其他资源，哪些资源被使用，哪些被移除。
 
 例如，我们想知道为什么 `@drawable/ic_plus_anim_016` 还在 apk 文件里，我们可以打开 `resources.txt` 文件，然后搜索那个文件名，你会发现它被其他资源引用到了:
 
