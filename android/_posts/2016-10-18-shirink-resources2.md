@@ -12,5 +12,4 @@ Android Studio 2.2自带`Analyz APK` 工具，可以查看 APK 各组成部分�
 
 使用 `Build -> Analyz APK` 选择 APK 文件，或者双击 APK 文件。
 
-<img src="https://github.com/chiemy/blog/blob/gh-pages/images/android/anylyz_apk.png" width=300/>
-
+<img src="https://github.com/chiemy/blog/blob/gh-pages/images/android/anylyz_apk.png" width="600"/>
