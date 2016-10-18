@@ -18,9 +18,8 @@ Android Studio 2.2自带的`Analyz APK` 工具，可以查看 APK 各组成部�
 
 ### ClassShark 
 ClassShark是一款查看Android执行文件的工具，可以查看诸如类的数量、方法数、dex数量等重要信息。
-
-<img src="https://github.com/borisf/classyshark-user-guide/blob/master/images/5%20ClassesDexData.png?raw=true"
- width=600/>
+ 
+ <img src="https://github.com/borisf/classyshark-user-guide/blob/master/images/5%20ClassesDexData.png?raw=true" width="600"/>
 
 使用方法见：[ClassShark Github](https://github.com/google/android-classyshark)
 
