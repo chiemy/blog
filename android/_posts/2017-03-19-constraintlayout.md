@@ -57,19 +57,20 @@ dependencies {
 
 向布局中添加控件很简单，只要通过拖拽就可以了。拖拽到布局中后，我们点击视图，会看到如下内容
 
-![手柄](http://7o4zgd.com1.z0.glb.clouddn.com/constraint02.png)
+<img src="http://7o4zgd.com1.z0.glb.clouddn.com/constraint02.png" width=500/>
+
 
 图中各部分分别是：
 
-1. 调整手柄：拖动手柄可调整视图大小
-2. 约束手柄：拖动可添加约束
+1 - 调整手柄：拖动手柄可调整视图大小
+2 - 约束手柄：拖动可添加约束
 
 鼠标放在圆圈上，如果未添加约束，圆圈会变为绿色，鼠标按住可进行拖拽，为此方向上添加约束；如果已添加约束，圆圈是红色的，点击可删除此方向上的约束。
 
-3. 清除按钮：点击可清除控件的所有约束
-4. 基线按钮（只有文字控件才有）：点击会在文字下方出现一个基线手柄，如下图
+3 - 清除按钮：点击可清除控件的所有约束
+4 - 基线按钮（只有文字控件才有）：点击会在文字下方出现一个基线手柄，如下图
 
-![手柄](http://7o4zgd.com1.z0.glb.clouddn.com/constraint03.png)
+<img src="http://7o4zgd.com1.z0.glb.clouddn.com/constraint03.png" width=500/>
 
 基线只能与其他基线进行链接，实现与其他文字基线对齐的效果。
 
@@ -127,12 +128,61 @@ GuideLine 对用户来说是不可见的，有水平和竖直两种。我们可�
 
 ## 调整视图大小
 
-![guideline vertical](http://7o4zgd.com1.z0.glb.clouddn.com/layout-editor-properties-callouts_2-3_2x.png)
+我们可以通过编辑区域视图四个角上的把手来调整视图大小，但这属于硬编码，尺寸很难适应不同的内容和屏幕尺寸。
+
+我们可以通过 Properties 窗口来调整视图尺寸，点击视图，它将会出现在编辑区域的右边，如下图所示：
+
+<img src="http://7o4zgd.com1.z0.glb.clouddn.com/layout-editor-properties-callouts_2-3_2x.png" width=300/>
+
+各部分分别表示：
+
+1 - 宽高比
+2 - 删除约束
+3 - 宽 / 高模式
+
+![guideline vertical](http://7o4zgd.com1.z0.glb.clouddn.com/layout-width-wrap.png) 代表Wrap Content
+
+![guideline vertical](http://7o4zgd.com1.z0.glb.clouddn.com/layout-width-match.png) 代表充满约束
+
+![guideline vertical](http://7o4zgd.com1.z0.glb.clouddn.com/layout-width-fixed.png) 代表固定尺寸
+
+点击可在三个模式间切换
+
+4 - 外边距
+5 - 约束倾向
 
 
+### 设置宽高比
+
+为了设置宽高比，我们至少要将一个约束的尺寸设置为0dp，然后为 layout_constraintDimentionRatio 属性设置一个比例值，例如
+
+```
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="0dp"
+    app:layout_constraintDimensionRatio="1:1"
+    />
+```
+
+将使按钮的高度和宽度保持一致
+
+如果宽高都设置了0dp约束，那么需要在比例前添加W,或H,以确定受约束的是高还是宽，然后受约束的一方根据不受约束的一方，按照比例计算自己的尺寸。
 
 
+### 与 GONE 控件连接的外边距
 
+两个控件 A 和 B，B 向 A 添加约束后，如果 A 的可见性变为 GONE，我可以通过设置相关属性，设置在 A 不可见时 B 的外边距，这些属性包括：
+
+* layout_goneMarginStart
+* layout_goneMarginEnd
+* layout_goneMarginLeft
+* layout_goneMarginTop
+* layout_goneMarginRight
+* layout_goneMarginBottom
+
+![guideline vertical](http://7o4zgd.com1.z0.glb.clouddn.com/relative-positioning-margin.png)
+
+如图，B 向 A 添加约束后，如果 A 的可见性变为 GONE，B 的外边距就会变为 layout_goneMarginLeft 所指定的值。
 
 
 
