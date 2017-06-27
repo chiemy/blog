@@ -35,7 +35,8 @@ dependencies {
 
 通过以下方式，可以将一个已经存在的布局转换为约束布局：
 
-![constraintlayout01.png](http://7o4zgd.com1.z0.glb.clouddn.com/constraintlayout01.png =500x)
+![constraintlayout01.png](http://7o4zgd.com1.z0.glb.clouddn.com/constraintlayout01.png =500x500)
+<a href="url"><img src="http://7o4zgd.com1.z0.glb.clouddn.com/constraintlayout01.png" align="center"></a>
 
 1. 选择 **Design** 视图
 2. 在 **Component Tree** 窗口下，右击布局，点击**Convert layout to ConstraintLayout**
