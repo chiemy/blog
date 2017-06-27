@@ -3,7 +3,7 @@ layout: post
 title: "ConstraintLayout 的使用"
 modified: 2017-03-19 19:35:17
 excerpt: "使用 ConstraintLayout 创建更加偏平化的布局"
-tags: [android, databinding]
+tags: [android]
 published: true
 ---
 
