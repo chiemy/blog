@@ -35,7 +35,6 @@ dependencies {
 
 通过以下方式，可以将一个已经存在的布局转换为约束布局：
 
-
 <a><img src="http://7o4zgd.com1.z0.glb.clouddn.com/constraintlayout01.png" align="middle" width="500"></a>
 
 1. 选择 **Design** 视图
@@ -58,7 +57,7 @@ dependencies {
 
 向布局中添加控件很简单，只要通过拖拽就可以了。拖拽到布局中后，我们点击视图，会看到如下内容
 
-![](http://7o4zgd.com1.z0.glb.clouddn.com/constraint02.png)
+![](http://7o4zgd.com1.z0.glb.clouddn.com/constraint02.png){:height="24px" width="48px"}
 
 
 图中各部分分别是：
