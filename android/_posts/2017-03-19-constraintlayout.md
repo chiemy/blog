@@ -57,7 +57,7 @@ dependencies {
 
 向布局中添加控件很简单，只要通过拖拽就可以了。拖拽到布局中后，我们点击视图，会看到如下内容
 
-{% img http://7o4zgd.com1.z0.glb.clouddn.com/constraint02.png "alt text" %}
+![](http://7o4zgd.com1.z0.glb.clouddn.com/constraint02.png)
 
 
 图中各部分分别是：
@@ -70,7 +70,7 @@ dependencies {
 3 - 清除按钮：点击可清除控件的所有约束
 4 - 基线按钮（只有文字控件才有）：点击会在文字下方出现一个基线手柄，如下图
 
-<img src="http://7o4zgd.com1.z0.glb.clouddn.com/constraint03.png" width=500/>
+![constraint03](http://7o4zgd.com1.z0.glb.clouddn.com/constraint03.png)
 
 基线只能与其他基线进行链接，实现与其他文字基线对齐的效果。
 
@@ -132,7 +132,8 @@ GuideLine 对用户来说是不可见的，有水平和竖直两种。我们可�
 
 我们可以通过 Properties 窗口来调整视图尺寸，点击视图，它将会出现在编辑区域的右边，如下图所示：
 
-<img src="http://7o4zgd.com1.z0.glb.clouddn.com/layout-editor-properties-callouts_2-3_2x.png" width=300/>
+![layout-editor-properties-callouts](http://7o4zgd.com1.z0.glb.clouddn.com/layout-editor-properties-callouts_2-3_2x.png)
+
 
 各部分分别表示：
 
