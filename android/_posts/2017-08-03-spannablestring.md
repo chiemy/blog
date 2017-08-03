@@ -40,8 +40,8 @@ Android 系统提供了许多的 Span 样式能够满足我们的大部分需求
 
 如果这些都不能满足需求，我们还可以自定义 Span。关于自定义 Span 这块，还没做深入的研究，可以先参考以下文章：
 
-[教你自定义android中span](http://blog.cgsdream.org/2016/07/06/custom-android-span/)
-[Custom Colour Spans](https://blog.stylingandroid.com/custom-colour-spans/)
+- [教你自定义android中span](http://blog.cgsdream.org/2016/07/06/custom-android-span/)
+- [Custom Colour Spans](https://blog.stylingandroid.com/custom-colour-spans/)
 
 ## 如何简化布局？
 当然 SpannableString 的用处很多，这里举一个在开发中的小例子，使用 SpannableString 来简化布局。
@@ -66,7 +66,7 @@ Android 系统提供了许多的 Span 样式能够满足我们的大部分需求
 
 图1布局的实现：
 
-```
+{% highlight java %}
 TextView tv = ...;
 tv.setTextColor(Color.WHITE);
 Typeface typeface = 数字、英文用到的字体
@@ -80,7 +80,7 @@ span.typeface("5", typeface)
     .typeface("L1", typeface)
     .append("零基础")
     .applyTo(tv);
-```
+{% endhighlight %}
 
 就是这样，一个 `TextView` 就可以轻松搞定类似的布局。
 
