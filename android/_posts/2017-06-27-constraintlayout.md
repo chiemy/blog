@@ -1,16 +1,16 @@
 ---
 layout: post
 title: "ConstraintLayout 的使用"
-modified: 2017-03-19 19:35:17
+modified: 2017-06-27 19:35:17
 excerpt: "使用 ConstraintLayout 创建更加偏平话的布局"
 tags: [android, databinding]
 published: true
 ---
 
 <br>
-ConstraintLayout （约束布局）在不嵌套布局的情况下，创建比较复杂的布局。它和 RelativeLayout 很相似，控件的位置都是跟兄弟控件和父控件相关联的，但它比 RelativeLayout 更加灵活，在 Android Studio 布局编辑中更容易使用。
+ConstraintLayout （约束布局）在不嵌套布局的情况下，创建比较复杂的布局。它和 RelativeLayout 很相似，控件的位置都是跟兄弟控件和父控件相关联的，但它比 RelativeLayout 更加强大，在 Android Studio 布局编辑中更容易使用。
 
-在 Android Studio 布局编辑器的可视化工具下，ConstraintLayout 所有功能都可以使用。可以通过拖拽的方式来创建 ConstraintLayout 布局。
+在 Android Studio 布局编辑器的可视化工具下，可以通过拖拽的方式来创建 ConstraintLayout 布局。
 
 ## 约束布局的添加
 
@@ -24,12 +24,12 @@ ConstraintLayout （约束布局）在不嵌套布局的情况下，创建比较
 
 ```
 dependencies {
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0'
 }
 ```
-版本号为步骤3中记录下来的，现在还没有发布正式版。
 
-6. 最后点击 **Sync Project with Gradle Files.**
+
+6.最后点击 **Sync Project with Gradle Files.**
 
 ### 将已存在的布局转换为约束布局
 
@@ -67,6 +67,21 @@ dependencies {
 
 鼠标放在圆圈上，如果未添加约束，圆圈会变为绿色，鼠标按住可进行拖拽，为此方向上添加约束；如果已添加约束，圆圈是红色的，点击可删除此方向上的约束。
 
+相关属性：
+
+- layout_constraintLeft_toLeftOf
+- layout_constraintLeft_toRightOf
+- layout_constraintRight_toLeftOf
+- layout_constraintRight_toRightOf
+- layout_constraintTop_toTopOf
+- layout_constraintTop_toBottomOf
+- layout_constraintBottom_toTopOf
+- layout_constraintBottom_toBottomOf
+- layout_constraintStart_toEndOf
+- layout_constraintStart_toStartOf
+- layout_constraintEnd_toStartOf
+- layout_constraintEnd_toEndOf
+
 3 - 清除按钮：点击可清除控件的所有约束
 4 - 基线按钮（只有文字控件才有）：点击会在文字下方出现一个基线手柄，如下图
 
@@ -74,7 +89,9 @@ dependencies {
 
 基线只能与其他基线进行链接，实现与其他文字基线对齐的效果。
 
-我们可以使用约束达到以下布局效果：
+- layout_constraintBaseline_toBaselineOf
+
+举例：
 
 ### 相对父控件位置
 
@@ -101,7 +118,7 @@ dependencies {
 
 ![基准线对齐](http://7o4zgd.com1.z0.glb.clouddn.com/baseline-constraint_2x.png)
 
-### GuideLine (指引线) 约束
+### GuideLine (指引线/引导线) 约束
 
 GuideLine 对用户来说是不可见的，有水平和竖直两种。我们可以按照距离布局边缘的百分比或实际距离来放置 GuideLine。
 
@@ -117,20 +134,9 @@ GuideLine 对用户来说是不可见的，有水平和竖直两种。我们可�
 
 
 
-## 调整约束倾向
+## Properties 属性窗口
 
-当我们为视图两边（左右两边或上下两边）都添加约束时，视图会居中，默认为50%的倾向。
-
-我们可以在编辑区域拖拽视图进行调整，或者在 `Properties`窗口进行调整。
-
-![guideline vertical](http://7o4zgd.com1.z0.glb.clouddn.com/bias.gif)
-
-
-## 调整视图大小
-
-我们可以通过编辑区域视图四个角上的把手来调整视图大小，但这属于硬编码，尺寸很难适应不同的内容和屏幕尺寸。
-
-我们可以通过 Properties 窗口来调整视图尺寸，点击视图，它将会出现在编辑区域的右边，如下图所示：
+通过 Properties 窗口可以调整视图的一些属性，点击视图，它将会出现在编辑区域的右边，如下图所示：
 
 <img src="http://7o4zgd.com1.z0.glb.clouddn.com/layout-editor-properties-callouts_2-3_2x.png" width=300/>
 
@@ -151,10 +157,22 @@ GuideLine 对用户来说是不可见的，有水平和竖直两种。我们可�
 4 - 外边距
 5 - 约束倾向
 
+属性
+- `layout_constraintHorizontal_bias`
+- `layout_constraintVertical_bias`
+
+值从0到1
+
+当我们为视图两边（左右两边或上下两边）都添加约束时，视图会居中，默认为50%的倾向。
+
+我们可以在编辑区域拖拽视图进行调整，或者在 `Properties`窗口进行调整。
+
+![guideline vertical](http://7o4zgd.com1.z0.glb.clouddn.com/bias.gif)
+
 
 ### 设置宽高比
 
-为了设置宽高比，我们至少要将一个约束的尺寸设置为0dp，然后为 layout_constraintDimentionRatio 属性设置一个比例值，例如
+为了设置宽高比，我们至少要将一个约束的尺寸设置为0dp，然后为 layout_constraintDimentionRatio 属性设置一个比例值，值可以是一个表示宽高比的浮点型数值，也可以是比例的形式：`width:height`例如
 
 ```
 <Button
@@ -166,7 +184,18 @@ GuideLine 对用户来说是不可见的，有水平和竖直两种。我们可�
 
 将使按钮的高度和宽度保持一致
 
-如果宽高都设置了0dp约束，那么需要在比例前添加W,或H,以确定受约束的是高还是宽，然后受约束的一方根据不受约束的一方，按照比例计算自己的尺寸。
+You can also use ratio if both dimensions are set to MATCH_CONSTRAINT (0dp). In this case the system sets the largest dimensions the satisfies all constraints and maintains the aspect ratio specified. To constrain one specific side based on the dimensions of another. You can pre append W," or H, to constrain the width or height respectively. For example, If one dimension is constrained by two targets (e.g. width is 0dp and centered on parent) you can indicate which side should be constrained, by adding the letter W (for constraining the width) or H (for constraining the height) in front of the ratio, separated by a comma:
+
+```
+<Button 
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintDimensionRatio="H,16:9"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+```
+
+will set the height of the button following a 16:9 ratio, while the width of the button will match the constraints to parent.
 
 
 ### 与 GONE 控件连接的外边距
@@ -186,4 +215,24 @@ GuideLine 对用户来说是不可见的，有水平和竖直两种。我们可�
 
 
 
+
+## Chain Style
+
+### 相关属性
+
+* layout_constraintHorizontal_chainStyle
+* layout_constraintVertical_chainStyle
+
+### 包括如下类型
+
+- spread - 所有元素展开
+- spread_inside - 所有元素展开，但端点元素不展开，也就是两边的元素是紧邻边缘的
+- packed - 元素作为一个整体，打包在一起, 可通过调整头元素的倾向，调整整体的倾向。
+
+
+### 权重
+
+属性：layout_constraintVertical_weight 
+
+决定设置为 MATCH_CONSTRAINT （0dp）的元素，所占剩余空间的比例。
 
