@@ -29,10 +29,10 @@ published: true
 * int end: 标记的最终位置
 * int flags: 
 
-`Spanned.SPAN_INCLUSIVE_INCLUSIVE`，闭区间[start, end] 
-`Spanned.SPAN_INCLUSIVE_EXCLUSIVE`，前闭后开[start, end)
-`Spanned.SPAN_EXCLUSIVE_INCLUSIVE`，前开后闭(start, end]
-`Spanned.SPAN_EXCLUSIVE_EXCLUSIVE`，开区间(start, end)
+- `Spanned.SPAN_INCLUSIVE_INCLUSIVE`，闭区间[start, end] 
+- `Spanned.SPAN_INCLUSIVE_EXCLUSIVE`，前闭后开[start, end)
+- `Spanned.SPAN_EXCLUSIVE_INCLUSIVE`，前开后闭(start, end]
+- `Spanned.SPAN_EXCLUSIVE_EXCLUSIVE`，开区间(start, end)
 
 ## Span
 
