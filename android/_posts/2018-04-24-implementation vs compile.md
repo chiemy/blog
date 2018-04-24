@@ -13,7 +13,7 @@ published: true
 
 ## 作用
 
-我们的项目依赖关系如下 app > module，我们在 module 的 `builde.gradle` 下通过不同的方式引入 `recyclerview` 的依赖，看有什么不一样的地方。
+举例：现我们的项目依赖关系如下 app > module，我们在 module 的 `builde.gradle` 下通过不同的方式引入 `recyclerview` 的依赖，看有什么不一样的地方。
 
 如果通过 `api` 或 `compile` 的方式，此时，我们在 app 中是可以使用 `RecyclerView` 类，我们可以称这种方式为”依赖的传递”；
 
