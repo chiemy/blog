@@ -7,7 +7,7 @@ tags: [android, ViewPager, Animation]
 comments: true
 ---
 
-##PageTransformer的基本使用
+## PageTransformer的基本使用
 -----
 `ViewPager`在开发中应用的非常普遍，一些基本用法都已经掌握了，但是有个叫`PageTransformer`的东东，还是第一次接触，用起来的确非常酷。
 
@@ -30,7 +30,7 @@ comments: true
 
 以上图为例,page-0,1,2的当前`position`值分别为-1、0、1，如果从当前位置滑向page-0，并最终到page-0，那么page-0的`position`值会从-1逐渐增大到0，page-1的`position`值会从0逐渐增大到1，page-2的position值会从1逐渐增大。滑动过程中会回调`transformPage()`方法，我们就可以根据`position`的值实现一些动画效果了。
 
-##不止如此，还有……
+## 不止如此，还有……
 -----
 `transformPage()`方法提供了`position`的值和page所对应的`view`，一般情况下，我们会对此`view`进行动画处理，但是不限于此。
 我们可以对此`view`的内部的`view`进行动画处理，就像下边这样:
@@ -50,3 +50,4 @@ comments: true
 参考
 
 [Great animations with PageTransformer](https://medium.com/@BashaChris/the-android-viewpager-has-become-a-fairly-popular-component-among-android-apps-its-simple-6bca403b16d4 "Great animations with PageTransformer")
+
