@@ -22,9 +22,16 @@ published: true
 优点：
 
 - 没有依赖的传递，减少意外的使用（比如我们的类和依赖的类重名，很可能造成误用）
-- 减少的**类路径大小（classpath size）**，编译更快
+- 减少**类路径大小（classpath size）**，编译更快
 - 依赖发生变化，只有直接添加该依赖的模块会重新编译，而不会导致整个依赖结构都重新编译。如上例中：如果 recyclerview 依赖发生变化，只有 module 会重新编译，而 app 不会重新编译。
+
+> 
 
 所以，我们应该尽量使用 `implementation` 来代替 `compile`。在有依赖传递的需求时，使用 `api`。
 
+
+相关资料：
+
+- [What's the difference between implementation and compile in gradle](https://stackoverflow.com/questions/44493378/whats-the-difference-between-implementation-and-compile-in-gradle)
+- [The Java Library Plugin](https://docs.gradle.org/current/userguide/java_library_plugin.html)
 
